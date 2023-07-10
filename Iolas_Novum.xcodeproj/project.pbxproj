@@ -12,7 +12,29 @@
 		C41F06E32A5C196300EB907D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41F06E22A5C196300EB907D /* Assets.xcassets */; };
 		C41F06E62A5C196300EB907D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41F06E52A5C196300EB907D /* Preview Assets.xcassets */; };
 		C41F06E82A5C196300EB907D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F06E72A5C196300EB907D /* Persistence.swift */; };
-		C41F06EB2A5C196300EB907D /* Iolas_Novum.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C41F06E92A5C196300EB907D /* Iolas_Novum.xcdatamodeld */; };
+		C41F06EB2A5C196300EB907D /* NovumContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C41F06E92A5C196300EB907D /* NovumContainer.xcdatamodeld */; };
+		C41F06F52A5C220200EB907D /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F06F42A5C220200EB907D /* Home.swift */; };
+		C41F06F72A5C268900EB907D /* Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F06F62A5C268900EB907D /* Today.swift */; };
+		C41F06FA2A5C286700EB907D /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F06F92A5C286700EB907D /* ActivityViewModel.swift */; };
+		C41F06FD2A5C2AB700EB907D /* Influence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F06FC2A5C2AB700EB907D /* Influence.swift */; };
+		C41F07032A5C2EE200EB907D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07022A5C2EE200EB907D /* Date.swift */; };
+		C41F07052A5C38B200EB907D /* AddActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07042A5C38B200EB907D /* AddActivity.swift */; };
+		C41F07082A5C427D00EB907D /* TagStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07072A5C427D00EB907D /* TagStub.swift */; };
+		C41F070A2A5C4E0A00EB907D /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07092A5C4E0A00EB907D /* TagViewModel.swift */; };
+		C41F070C2A5C579E00EB907D /* TagManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F070B2A5C579E00EB907D /* TagManagement.swift */; };
+		C41F07162A5C62B500EB907D /* WrappingHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07152A5C62B500EB907D /* WrappingHStack.swift */; };
+		C41F07182A5C744900EB907D /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07172A5C744900EB907D /* Timeline.swift */; };
+		C41F071A2A5C748700EB907D /* DateTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07192A5C748700EB907D /* DateTimeViewModel.swift */; };
+		C41F07252A5C804D00EB907D /* THICCCBOI-ThicccAF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41F071C2A5C804D00EB907D /* THICCCBOI-ThicccAF.ttf */; };
+		C41F07262A5C804D00EB907D /* THICCCBOI-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41F071D2A5C804D00EB907D /* THICCCBOI-Black.ttf */; };
+		C41F07272A5C804D00EB907D /* THICCCBOI-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41F071E2A5C804D00EB907D /* THICCCBOI-SemiBold.ttf */; };
+		C41F07282A5C804D00EB907D /* THICCCBOI-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41F071F2A5C804D00EB907D /* THICCCBOI-Thin.ttf */; };
+		C41F07292A5C804D00EB907D /* THICCCBOI-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41F07202A5C804D00EB907D /* THICCCBOI-ExtraBold.ttf */; };
+		C41F072A2A5C804D00EB907D /* THICCCBOI-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41F07212A5C804D00EB907D /* THICCCBOI-Regular.ttf */; };
+		C41F072B2A5C804D00EB907D /* THICCCBOI-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41F07222A5C804D00EB907D /* THICCCBOI-Medium.ttf */; };
+		C41F072C2A5C804D00EB907D /* THICCCBOI-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41F07232A5C804D00EB907D /* THICCCBOI-Light.ttf */; };
+		C41F072D2A5C804D00EB907D /* THICCCBOI-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41F07242A5C804D00EB907D /* THICCCBOI-Bold.ttf */; };
+		C41F07302A5C80E900EB907D /* Thicccboi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F072F2A5C80E900EB907D /* Thicccboi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +45,29 @@
 		C41F06E52A5C196300EB907D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C41F06E72A5C196300EB907D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		C41F06EA2A5C196300EB907D /* Iolas_Novum.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Iolas_Novum.xcdatamodel; sourceTree = "<group>"; };
+		C41F06F42A5C220200EB907D /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		C41F06F62A5C268900EB907D /* Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today.swift; sourceTree = "<group>"; };
+		C41F06F92A5C286700EB907D /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
+		C41F06FC2A5C2AB700EB907D /* Influence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Influence.swift; sourceTree = "<group>"; };
+		C41F07022A5C2EE200EB907D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		C41F07042A5C38B200EB907D /* AddActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivity.swift; sourceTree = "<group>"; };
+		C41F07072A5C427D00EB907D /* TagStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStub.swift; sourceTree = "<group>"; };
+		C41F07092A5C4E0A00EB907D /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
+		C41F070B2A5C579E00EB907D /* TagManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManagement.swift; sourceTree = "<group>"; };
+		C41F07152A5C62B500EB907D /* WrappingHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHStack.swift; sourceTree = "<group>"; };
+		C41F07172A5C744900EB907D /* Timeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
+		C41F07192A5C748700EB907D /* DateTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeViewModel.swift; sourceTree = "<group>"; };
+		C41F071C2A5C804D00EB907D /* THICCCBOI-ThicccAF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THICCCBOI-ThicccAF.ttf"; sourceTree = "<group>"; };
+		C41F071D2A5C804D00EB907D /* THICCCBOI-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THICCCBOI-Black.ttf"; sourceTree = "<group>"; };
+		C41F071E2A5C804D00EB907D /* THICCCBOI-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THICCCBOI-SemiBold.ttf"; sourceTree = "<group>"; };
+		C41F071F2A5C804D00EB907D /* THICCCBOI-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THICCCBOI-Thin.ttf"; sourceTree = "<group>"; };
+		C41F07202A5C804D00EB907D /* THICCCBOI-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THICCCBOI-ExtraBold.ttf"; sourceTree = "<group>"; };
+		C41F07212A5C804D00EB907D /* THICCCBOI-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THICCCBOI-Regular.ttf"; sourceTree = "<group>"; };
+		C41F07222A5C804D00EB907D /* THICCCBOI-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THICCCBOI-Medium.ttf"; sourceTree = "<group>"; };
+		C41F07232A5C804D00EB907D /* THICCCBOI-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THICCCBOI-Light.ttf"; sourceTree = "<group>"; };
+		C41F07242A5C804D00EB907D /* THICCCBOI-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THICCCBOI-Bold.ttf"; sourceTree = "<group>"; };
+		C41F072E2A5C808500EB907D /* Iolas-Novum-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Iolas-Novum-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C41F072F2A5C80E900EB907D /* Thicccboi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thicccboi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +100,18 @@
 		C41F06DD2A5C196200EB907D /* Iolas_Novum */ = {
 			isa = PBXGroup;
 			children = (
+				C41F072E2A5C808500EB907D /* Iolas-Novum-Info.plist */,
+				C41F071B2A5C7FAB00EB907D /* Font */,
+				C41F07012A5C2ECB00EB907D /* Extension */,
+				C41F06FE2A5C2D0900EB907D /* View_Component */,
+				C41F06FB2A5C2AAB00EB907D /* Model */,
+				C41F06F82A5C285800EB907D /* ViewModel */,
+				C41F06F12A5C21B500EB907D /* View */,
 				C41F06DE2A5C196200EB907D /* Iolas_NovumApp.swift */,
 				C41F06E02A5C196200EB907D /* ContentView.swift */,
 				C41F06E22A5C196300EB907D /* Assets.xcassets */,
 				C41F06E72A5C196300EB907D /* Persistence.swift */,
-				C41F06E92A5C196300EB907D /* Iolas_Novum.xcdatamodeld */,
+				C41F06E92A5C196300EB907D /* NovumContainer.xcdatamodeld */,
 				C41F06E42A5C196300EB907D /* Preview Content */,
 			);
 			path = Iolas_Novum;
@@ -71,6 +123,78 @@
 				C41F06E52A5C196300EB907D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C41F06F12A5C21B500EB907D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C41F06F42A5C220200EB907D /* Home.swift */,
+				C41F06F62A5C268900EB907D /* Today.swift */,
+				C41F07172A5C744900EB907D /* Timeline.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C41F06F82A5C285800EB907D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C41F06F92A5C286700EB907D /* ActivityViewModel.swift */,
+				C41F07092A5C4E0A00EB907D /* TagViewModel.swift */,
+				C41F07192A5C748700EB907D /* DateTimeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C41F06FB2A5C2AAB00EB907D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C41F06FC2A5C2AB700EB907D /* Influence.swift */,
+				C41F072F2A5C80E900EB907D /* Thicccboi.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C41F06FE2A5C2D0900EB907D /* View_Component */ = {
+			isa = PBXGroup;
+			children = (
+				C41F07062A5C426800EB907D /* Helper */,
+				C41F07042A5C38B200EB907D /* AddActivity.swift */,
+				C41F07072A5C427D00EB907D /* TagStub.swift */,
+				C41F070B2A5C579E00EB907D /* TagManagement.swift */,
+			);
+			path = View_Component;
+			sourceTree = "<group>";
+		};
+		C41F07012A5C2ECB00EB907D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C41F07022A5C2EE200EB907D /* Date.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C41F07062A5C426800EB907D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C41F07152A5C62B500EB907D /* WrappingHStack.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		C41F071B2A5C7FAB00EB907D /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				C41F071D2A5C804D00EB907D /* THICCCBOI-Black.ttf */,
+				C41F07242A5C804D00EB907D /* THICCCBOI-Bold.ttf */,
+				C41F07202A5C804D00EB907D /* THICCCBOI-ExtraBold.ttf */,
+				C41F07232A5C804D00EB907D /* THICCCBOI-Light.ttf */,
+				C41F07222A5C804D00EB907D /* THICCCBOI-Medium.ttf */,
+				C41F07212A5C804D00EB907D /* THICCCBOI-Regular.ttf */,
+				C41F071E2A5C804D00EB907D /* THICCCBOI-SemiBold.ttf */,
+				C41F071C2A5C804D00EB907D /* THICCCBOI-ThicccAF.ttf */,
+				C41F071F2A5C804D00EB907D /* THICCCBOI-Thin.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,8 +255,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C41F072A2A5C804D00EB907D /* THICCCBOI-Regular.ttf in Resources */,
+				C41F07282A5C804D00EB907D /* THICCCBOI-Thin.ttf in Resources */,
+				C41F072C2A5C804D00EB907D /* THICCCBOI-Light.ttf in Resources */,
 				C41F06E62A5C196300EB907D /* Preview Assets.xcassets in Resources */,
+				C41F07292A5C804D00EB907D /* THICCCBOI-ExtraBold.ttf in Resources */,
+				C41F07262A5C804D00EB907D /* THICCCBOI-Black.ttf in Resources */,
+				C41F072D2A5C804D00EB907D /* THICCCBOI-Bold.ttf in Resources */,
 				C41F06E32A5C196300EB907D /* Assets.xcassets in Resources */,
+				C41F07252A5C804D00EB907D /* THICCCBOI-ThicccAF.ttf in Resources */,
+				C41F072B2A5C804D00EB907D /* THICCCBOI-Medium.ttf in Resources */,
+				C41F07272A5C804D00EB907D /* THICCCBOI-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,9 +276,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C41F06EB2A5C196300EB907D /* Iolas_Novum.xcdatamodeld in Sources */,
+				C41F06EB2A5C196300EB907D /* NovumContainer.xcdatamodeld in Sources */,
+				C41F07032A5C2EE200EB907D /* Date.swift in Sources */,
+				C41F07052A5C38B200EB907D /* AddActivity.swift in Sources */,
+				C41F07182A5C744900EB907D /* Timeline.swift in Sources */,
+				C41F06F72A5C268900EB907D /* Today.swift in Sources */,
+				C41F06FA2A5C286700EB907D /* ActivityViewModel.swift in Sources */,
+				C41F070C2A5C579E00EB907D /* TagManagement.swift in Sources */,
+				C41F070A2A5C4E0A00EB907D /* TagViewModel.swift in Sources */,
+				C41F07162A5C62B500EB907D /* WrappingHStack.swift in Sources */,
+				C41F06FD2A5C2AB700EB907D /* Influence.swift in Sources */,
 				C41F06E82A5C196300EB907D /* Persistence.swift in Sources */,
+				C41F07302A5C80E900EB907D /* Thicccboi.swift in Sources */,
+				C41F071A2A5C748700EB907D /* DateTimeViewModel.swift in Sources */,
+				C41F06F52A5C220200EB907D /* Home.swift in Sources */,
 				C41F06E12A5C196200EB907D /* ContentView.swift in Sources */,
+				C41F07082A5C427D00EB907D /* TagStub.swift in Sources */,
 				C41F06DF2A5C196200EB907D /* Iolas_NovumApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +424,7 @@
 				DEVELOPMENT_TEAM = 8YPDX2HP4P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Iolas-Novum-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -307,6 +454,7 @@
 				DEVELOPMENT_TEAM = 8YPDX2HP4P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Iolas-Novum-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -349,13 +497,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C41F06E92A5C196300EB907D /* Iolas_Novum.xcdatamodeld */ = {
+		C41F06E92A5C196300EB907D /* NovumContainer.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				C41F06EA2A5C196300EB907D /* Iolas_Novum.xcdatamodel */,
 			);
 			currentVersion = C41F06EA2A5C196300EB907D /* Iolas_Novum.xcdatamodel */;
-			path = Iolas_Novum.xcdatamodeld;
+			path = NovumContainer.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

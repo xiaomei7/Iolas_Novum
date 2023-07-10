@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>THICCCBOI-Bold.ttf</string>
+		<string>THICCCBOI-Light.ttf</string>
+		<string>THICCCBOI-Medium.ttf</string>
+		<string>THICCCBOI-Regular.ttf</string>
+		<string>THICCCBOI-Black.tff</string>
+		<string>THICCCBOI-SemiBold.ttf</string>
+		<string>THICCCBOI-Thin.ttf</string>
+		<string>THICCCBOI-ExtraBold.ttf</string>
+		<string>THICCCBOI-ThicccAF.ttf</string>
+	</array>
+</dict>
+</plist>
