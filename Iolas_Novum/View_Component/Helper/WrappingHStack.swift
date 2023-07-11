@@ -5,7 +5,6 @@
 //  Created by Iolas on 10/07/2023.
 //
 
-import Foundation
 import SwiftUI
 
 // Adapted from: https://stackoverflow.com/questions/62102647/swiftui-hstack-with-wrap-and-dynamic-height/62103264#62103264

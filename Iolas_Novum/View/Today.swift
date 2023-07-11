@@ -17,6 +17,8 @@ struct Today: View {
     
     @StateObject var activityModel: ActivityViewModel = .init()
     
+    @State private var isEditNavigationActive = false
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -29,7 +31,7 @@ struct Today: View {
                                 Text("Add Activity")
                             }
                             
-                            NavigationLink(destination: TagManagement()) {
+                            NavigationLink(destination: TagManagement(isSelectionMode: false)) {
                                 Text("Add Tag")
                             }
                         } label: {
@@ -42,12 +44,11 @@ struct Today: View {
                     .padding(.bottom, 10)
                 
                 ScrollView(activities.isEmpty ? .init() : .vertical, showsIndicators: false) {
-                    VStack(spacing: 15){
+                    VStack(spacing: 0){
                         ForEach(activities) { activity in
                             ActivityCard(activity: activity)
                         }
                     }
-                    .padding(.vertical)
                 }
             }
             .frame(maxHeight: .infinity, alignment: .top)
@@ -73,17 +74,35 @@ extension Today {
                 
                 Spacer()
                 
+//                NavigationLink(destination: AddActivity().environmentObject(activityModel), isActive: $isEditNavigationActive) {
+//                    EmptyView()
+//                }
+//                .hidden()
+                
                 Button {
-                    
+                    activityModel.editActivity = activity
+                    activityModel.restoreEditData()
+                    isEditNavigationActive = true
                 } label: {
                     Image(systemName: "pencil")
                 }
+                .sheet(isPresented: $isEditNavigationActive) {
+                                    AddActivity()
+                                        .environmentObject(activityModel)
+                                }
             }
             
             Text(activity.describe ?? "Description")
                 .thicccboi(14, .regular)
             
-            // TODO: Tags
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(Array(activity.tags! as! Set<TagEntity>), id: \.id) { tag in
+                        TagStub(tag: tag, hasDelete: false, tags: .constant(Set<TagEntity>()))
+                    }
+                }
+            }
+            
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(12)

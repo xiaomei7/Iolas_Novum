@@ -13,14 +13,26 @@ struct AddActivity: View {
     
     @State private var animateColor: Color = Influence.neutral.color
     @State private var animate: Bool = false
-    
+        
     var body: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 10) {
-                Text(activityModel.editActivity != nil ? "Edit Activity" : "Create New Activity")
-                    .thicccboi(28, .light)
-                    .foregroundColor(Color("Cream"))
-                    .padding(.vertical, 15)
+                HStack {
+                    Button {
+                        if activityModel.deleteActivity(context: env.managedObjectContext){
+                            env.dismiss()
+                        }
+                    } label: {
+                        Image(systemName: "trash")
+                    }
+                    .tint(.red)
+                    .opacity(activityModel.editActivity == nil ? 0 : 1)
+                    
+                    Text(activityModel.editActivity != nil ? "Edit Activity" : "Create New Activity")
+                        .thicccboi(28, .light)
+                        .foregroundColor(Color("Cream"))
+                        .padding(.vertical, 15)
+                }
                 
                 Name
                 
@@ -51,9 +63,6 @@ struct AddActivity: View {
         )
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: DismissButton)
-        .onDisappear {
-            activityModel.resetData()
-        }
     }
 }
 
@@ -175,15 +184,18 @@ extension AddActivity {
                     .contentShape(Rectangle())
                     .onTapGesture {
                         guard !animate else { return } // avoid simultaneous taps
-                        animateColor = activityModel.influence.color
-                        withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 1, blendDuration: 1)) {
-                            animate = true
-                        }
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             animate = false
                             activityModel.influence = selectedInfluence
                         }
+                        
+                        animateColor = activityModel.influence.color
+                        print(activityModel.influence.color)
+//                        withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 1, blendDuration: 1)) {
+//                            animate = true
+//                        }
+                        
                     }
             }
         }
@@ -197,19 +209,20 @@ extension AddActivity {
             
             Spacer()
             
-            NavigationLink(destination: TagManagement()) {
+            NavigationLink(destination: TagManagement(isSelectionMode: true).environmentObject(activityModel)) {
                 Image(systemName: "plus")
                     .font(.system(size: 16))
                     .foregroundColor(Color("Gray"))
             }
+            .id(UUID())
+            
         }
         .padding(.top, 15)
         
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(activityModel.tagsId, id: \.self) { tag in
-                    //                    TagStub(tag: tag, hasDelete: true, tags: $tags)
-                    Text("Tag")
+                ForEach(Array(activityModel.selectedTags), id: \.id) { tag in
+                    TagStub(tag: tag, hasDelete: true, tags: $activityModel.selectedTags)
                 }
             }
         }
@@ -233,6 +246,7 @@ extension AddActivity {
     
     private var DismissButton: some View {
         Button {
+            activityModel.resetData()
             env.dismiss()
         } label: {
             Image(systemName: "chevron.left")
@@ -243,18 +257,26 @@ extension AddActivity {
     
     private var CreateButton: some View {
         Button {
-            if activityModel.createActivity(context: env.managedObjectContext){
-                env.dismiss()
+            if activityModel.editActivity != nil {
+                if activityModel.updateActivity(context: env.managedObjectContext) {
+                    activityModel.resetData()
+                    env.dismiss()
+                }
+            } else {
+                if activityModel.createActivity(context: env.managedObjectContext) {
+                    activityModel.resetData()
+                    env.dismiss()
+                }
             }
         } label: {
-            Text("Create Activity")
+            Text(activityModel.editActivity != nil ? "Edit Done" : "Create Activity")
                 .thicccboi(16, .regular)
                 .foregroundColor(Color("Cream"))
                 .padding(.vertical, 15)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .background {
                     Capsule()
-                        .fill(animateColor.gradient)
+                        .fill(activityModel.influence.color.gradient)
                 }
         }
         .frame(maxHeight: .infinity, alignment: .bottom)

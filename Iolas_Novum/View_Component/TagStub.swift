@@ -11,7 +11,7 @@ struct TagStub: View {
     
     let tag: TagEntity
     let hasDelete: Bool
-    @Binding var tags: [TagEntity]
+    @Binding var tags: Set<TagEntity>
     
     var body: some View {
         HStack(alignment: .center) {
@@ -28,9 +28,7 @@ struct TagStub: View {
             if (hasDelete) {
                 
                 Button {
-                    withAnimation {
-                        self.tags.removeAll(where: { $0.id == self.tag.id })
-                    }
+                    tags.remove(tag)
                 } label: {
                     Image(systemName: "xmark")
                         .resizable()

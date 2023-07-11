@@ -16,13 +16,16 @@ struct TagManagement: View {
     var tags: FetchedResults<TagEntity>
     
     @Environment(\.self) var env
+    @EnvironmentObject var activityModel: ActivityViewModel
     
     @StateObject var tagModel: TagViewModel = .init()
+    
+    let isSelectionMode: Bool
     
     var body: some View {
         VStack(spacing: 0) {
             Text("Tags")
-                .font(.title2.bold())
+                .thicccboi(22, .thick)
                 .frame(maxWidth: .infinity)
                 .overlay(alignment: .leading) {
                     Button {
@@ -50,7 +53,16 @@ struct TagManagement: View {
             ScrollView(tags.isEmpty ? .init() : .vertical, showsIndicators: false) {
                 VStack {
                     ForEach(tags) { tag in
-                        TagStub(tag: tag, hasDelete: false, tags: .constant([]))
+                        Button {
+                            if isSelectionMode {
+                                if !activityModel.selectedTags.contains(where: { $0.id == tag.id }) {
+                                    activityModel.selectedTags.insert(tag)
+                                }
+                                env.dismiss()
+                            }
+                        } label: {
+                            TagStub(tag: tag, hasDelete: false, tags: .constant(Set<TagEntity>()))
+                        }
                     }
                 }
             }
@@ -70,7 +82,7 @@ struct TagManagement: View {
 
 struct TagManagement_Previews: PreviewProvider {
     static var previews: some View {
-        TagManagement()
+        Today()
     }
 }
 

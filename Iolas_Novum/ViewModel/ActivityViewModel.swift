@@ -16,12 +16,11 @@ final class ActivityViewModel: ObservableObject {
     @Published var color: String = "PresetColor-1"
     @Published var isArchived: Bool = false
     @Published var factor: Double = 1.0
-    @Published var tags: NSSet = []
+    @Published var selectedTags: Set<TagEntity> = []
     
     // MARK: Functional Variables
     @Published var addorEditActivity: Bool = false
     @Published var editActivity: ActivityEntity?
-    @Published var selectedTags: Set<TagEntity> = []
     
     // MARK: CRUD
     func createActivity(context: NSManagedObjectContext) -> Bool{
@@ -36,7 +35,7 @@ final class ActivityViewModel: ObservableObject {
         activity.factor = factor
         activity.accumulateTime = 0.0
         activity.created = Date()
-        activity.tags = tags
+        activity.tags = NSSet(set: selectedTags)
         
         if let _ = try? context.save(){
             return true
@@ -44,7 +43,7 @@ final class ActivityViewModel: ObservableObject {
         return false
     }
     
-    func updateActivity(context: NSManagedObjectContext) async -> Bool{
+    func updateActivity(context: NSManagedObjectContext) -> Bool{
         if let activity = editActivity {
             activity.name = name
             activity.describe = description
@@ -52,7 +51,7 @@ final class ActivityViewModel: ObservableObject {
             activity.color = color
             activity.isArchived = isArchived
             activity.factor = factor
-            activity.tags = tags
+            activity.tags = NSSet(set: selectedTags)
             
             if let _ = try? context.save(){
                 return true
@@ -82,7 +81,7 @@ final class ActivityViewModel: ObservableObject {
             influence = Influence(rawValue: editActivity.influence ?? "Neutral")!
             color = editActivity.color ?? "PresetColor-1"
             factor = editActivity.factor
-            tags = editActivity.tags ?? []
+            selectedTags = editActivity.tags as? Set<TagEntity> ?? []
         }
     }
     
@@ -93,7 +92,7 @@ final class ActivityViewModel: ObservableObject {
         color = "PresetColor-1"
         isArchived = false
         factor = 1.0
-        tags = []
+        selectedTags = []
         
         editActivity = nil
     }

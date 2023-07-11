@@ -12,7 +12,7 @@ struct Home: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            Text("Timeline View")
+            Timeline()
                 .tabItem{
                     Image(systemName: "calendar.day.timeline.left")
                     Text("Timeline")
