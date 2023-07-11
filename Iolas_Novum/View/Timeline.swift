@@ -133,13 +133,13 @@ extension Timeline {
                 VStack(alignment: .leading, spacing: 5) {
                     Text("Earn: \(earn.mostTwoDigitsAsNumberString())")
                         .thicccboi(12, .regular)
-                        .foregroundColor(Color("Orange"))
+                        .foregroundColor(Color("DarkGreen"))
                     Text("Spent: \(cost.mostTwoDigitsAsNumberString())")
                         .thicccboi(12, .regular)
                         .foregroundColor(Color("DarkOrange"))
                     Text("Total: \(total.mostTwoDigitsAsNumberString())")
                         .thicccboi(12, .regular)
-                        .foregroundColor(total > 0 ? Color("Orange") : Color("DarkOrange"))
+                        .foregroundColor(total > 0 ? Color("DarkGreen") : Color("DarkOrange"))
                 }
                 
                 Button(action: {}, label: {
@@ -275,11 +275,23 @@ extension Timeline {
                         }
                 }
             
-            VStack(alignment: .leading, spacing: 8, content: {
+            VStack(alignment: .leading, spacing: 8) {
                 HStack {
-                    Text(timeline.activity?.name ?? "Unallocated")
-                        .thicccboi(18, .semibold)
-                        .foregroundColor(Color("Black"))
+                    VStack(alignment: .leading) {
+                        Text(timeline.activity?.name ?? "Unallocated")
+                            .thicccboi(16, .semibold)
+                            .foregroundColor(Color("Black"))
+                        
+                        HStack {
+                            Label(timeline.start?.formatToString("HH:ss") ?? "N/A", systemImage: "clock")
+                                .thicccboi(12, .regular)
+                                .foregroundColor(Color.black)
+                            
+                            Label(timeline.end?.formatToString("HH:ss") ?? "N/A", systemImage: "arrow.forward")
+                                .thicccboi(12, .regular)
+                                .foregroundColor(Color.black)
+                        }
+                    }
                     
                     Spacer()
                     
@@ -299,29 +311,50 @@ extension Timeline {
                     }
                 }
                 
-                if let tags = timeline.activity?.tags {
+                //                if let description = timeline.describe {
+                //                    Text(description)
+                //                        .thicccboi(14, .light)
+                //                        .foregroundColor(Color("Gray"))
+                //                }
+                if timeline.describe != "" {
+                    Text(timeline.describe!)
+                        .thicccboi(14, .light)
+                        .foregroundColor(Color("Gray"))
+                }
+                
+                //                if let tags = timeline.activity?.tags {
+                //                    ScrollView(.horizontal, showsIndicators: true) {
+                //                        HStack {
+                //                            ForEach(Array(tags as! Set<TagEntity>), id: \.id) { tag in
+                //                                TagStub(tag: tag, hasDelete: false, tags: .constant(Set<TagEntity>()))
+                //                            }
+                //                        }
+                //                    }
+                //                }
+                
+                if (timeline.activity != nil) && timeline.activity!.tags?.count != 0 {
                     ScrollView(.horizontal, showsIndicators: true) {
                         HStack {
-                            ForEach(Array(tags as! Set<TagEntity>), id: \.id) { tag in
+                            ForEach(Array(timeline.activity!.tags as! Set<TagEntity>), id: \.id) { tag in
                                 TagStub(tag: tag, hasDelete: false, tags: .constant(Set<TagEntity>()))
                             }
                         }
                     }
                 }
-                
-                HStack {
-                    Label(timeline.start?.formatToString("HH:ss") ?? "N/A", systemImage: "clock")
-                        .thicccboi(12, .regular)
-                        .foregroundColor(Color.black)
-                    
-                    Label(timeline.end?.formatToString("HH:ss") ?? "N/A", systemImage: "arrow.forward")
-                        .thicccboi(12, .regular)
-                        .foregroundColor(Color.black)
-                }
-            })
+            }
             .padding(15)
             .hSpacing(.leading)
-            .background(Color(timeline.activity?.color ?? "Brown").opacity(0.6), in: RoundedRectangle(cornerRadius: 15))
+            .background {
+                ZStack(alignment: .leading) {
+                    Rectangle()
+                        .fill(Color((timeline.activity?.color ?? "Gray")))
+                        .frame(width: 4)
+                    
+                    Rectangle()
+                        .fill(Color((timeline.activity?.color ?? "Gray")).opacity(0.25))
+                }
+            }
+            .cornerRadius(20, corners: [.topLeft, .bottomRight])
         }
         .offset(y: 10)
         
