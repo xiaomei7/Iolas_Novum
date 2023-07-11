@@ -191,7 +191,6 @@ extension AddActivity {
                         }
                         
                         animateColor = activityModel.influence.color
-                        print(activityModel.influence.color)
 //                        withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 1, blendDuration: 1)) {
 //                            animate = true
 //                        }

@@ -36,7 +36,7 @@ final class ActivityViewModel: ObservableObject {
         activity.accumulateTime = 0.0
         activity.created = Date()
         activity.tags = NSSet(set: selectedTags)
-        
+
         if let _ = try? context.save(){
             return true
         }

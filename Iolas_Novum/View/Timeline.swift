@@ -193,7 +193,6 @@ extension Timeline {
                 .hSpacing(.center)
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    /// Updating Current Date
                     withAnimation(.easeInOut) {
                         currentDate = day.date
                     }
@@ -232,9 +231,7 @@ extension Timeline {
                 weekSlider.removeFirst()
                 currentWeekIndex = weekSlider.count - 2
             }
-        }
-        
-        print(weekSlider.count)
+        }        
     }
     
     private func TimelineCard(_ timeline: TimelineEntry) -> some View {

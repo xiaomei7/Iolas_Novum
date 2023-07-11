@@ -45,7 +45,7 @@ struct Today: View {
                 
                 ScrollView(activities.isEmpty ? .init() : .vertical, showsIndicators: false) {
                     VStack(spacing: 0){
-                        ForEach(activities) { activity in
+                        ForEach(activities, id: \.id) { activity in
                             ActivityCard(activity: activity)
                         }
                     }
@@ -74,22 +74,14 @@ extension Today {
                 
                 Spacer()
                 
-//                NavigationLink(destination: AddActivity().environmentObject(activityModel), isActive: $isEditNavigationActive) {
-//                    EmptyView()
-//                }
-//                .hidden()
-                
-                Button {
+                NavigationLink(destination: AddActivity().environmentObject(activityModel)) {
+                    Image(systemName: "pencil")
+                }.simultaneousGesture(TapGesture().onEnded {
                     activityModel.editActivity = activity
                     activityModel.restoreEditData()
-                    isEditNavigationActive = true
-                } label: {
-                    Image(systemName: "pencil")
-                }
-                .sheet(isPresented: $isEditNavigationActive) {
-                                    AddActivity()
-                                        .environmentObject(activityModel)
-                                }
+                })
+                
+                
             }
             
             Text(activity.describe ?? "Description")
