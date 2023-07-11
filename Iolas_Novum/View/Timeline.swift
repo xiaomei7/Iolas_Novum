@@ -12,7 +12,14 @@ struct Timeline: View {
     @State private var weekSlider: [[Date.WeekDay]] = []
     @State private var currentWeekIndex: Int = 1
     @State private var createWeek: Bool = false
-    @State private var timelineEntries: [TimelineEntry] = []
+    @State private var timelineEntries: [TimelineEntry] = [] {
+        didSet {
+            calculatePoints()
+        }
+    }
+    @State private var earn: Double = 0.0
+    @State private var cost: Double = 0.0
+    @State private var total: Double = 0.0
     
     @StateObject var timelineModel: TimelineEntryViewModel = .init()
     @Environment(\.self) var env
@@ -27,7 +34,6 @@ struct Timeline: View {
                 VStack {
                     ForEach(timelineEntries, id: \.id) { timeline in
                         TimelineCard(timeline)
-                            .padding(.horizontal, 12)
                             .background(alignment: .leading) {
                                 if timelineEntries.last?.id != timeline.id {
                                     Rectangle()
@@ -36,6 +42,7 @@ struct Timeline: View {
                                         .padding(.bottom, -35)
                                 }
                             }
+                            .padding(.horizontal, 12)
                     }
                 }
                 .hSpacing(.center)
@@ -70,18 +77,18 @@ struct Timeline: View {
                 }
             }
             
-            if timelineEntries.isEmpty {
-                timelineEntries = timelineModel.fetchTimelineEntries(on: currentDate, context: env.managedObjectContext)
-            }
+            timelineEntries = timelineModel.fetchTimelineEntries(on: currentDate, context: env.managedObjectContext)
         })
-        .sheet(isPresented: $timelineModel.addorEditTimeline, content: {
-            AddTimeline()
+        .sheet(isPresented: $timelineModel.addorEditTimeline, onDismiss: {
+            timelineEntries = timelineModel.fetchTimelineEntries(on: currentDate, context: env.managedObjectContext)
+        }) {
+            AddTimeline(lastTimeline: timelineEntries.first)
                 .environmentObject(timelineModel)
                 .presentationDetents([.height(300)])
                 .interactiveDismissDisabled()
                 .presentationCornerRadius(30)
                 .presentationBackground(Color("Cream"))
-        })
+        }
     }
 }
 
@@ -122,17 +129,31 @@ extension Timeline {
         }
         .hSpacing(.leading)
         .overlay(alignment: .topTrailing, content: {
-            Button(action: {}, label: {
-                Image("avatar")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 45, height: 45)
-                    .clipShape(Circle())
-                    .background(
-                        Circle()
-                            .stroke(Color("DarkGreen"), lineWidth: 5)
-                    )
-            })
+            HStack(spacing: 15) {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("Earn: \(earn.mostTwoDigitsAsNumberString())")
+                        .thicccboi(12, .regular)
+                        .foregroundColor(Color("Orange"))
+                    Text("Spent: \(cost.mostTwoDigitsAsNumberString())")
+                        .thicccboi(12, .regular)
+                        .foregroundColor(Color("DarkOrange"))
+                    Text("Total: \(total.mostTwoDigitsAsNumberString())")
+                        .thicccboi(12, .regular)
+                        .foregroundColor(total > 0 ? Color("Orange") : Color("DarkOrange"))
+                }
+                
+                Button(action: {}, label: {
+                    Image("avatar")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 45, height: 45)
+                        .clipShape(Circle())
+                        .background(
+                            Circle()
+                                .stroke(Color("DarkGreen"), lineWidth: 5)
+                        )
+                })
+            }
         })
         .padding(15)
         .background {
@@ -231,13 +252,13 @@ extension Timeline {
                 weekSlider.removeFirst()
                 currentWeekIndex = weekSlider.count - 2
             }
-        }        
+        }
     }
     
     private func TimelineCard(_ timeline: TimelineEntry) -> some View {
         HStack(alignment: .top, spacing: 15) {
             Circle()
-                .fill(Color(timeline.activity?.color ?? "Brown").opacity(0.7))
+                .fill(Influence(rawValue: timeline.activity?.influence ?? "Neutral")!.color.opacity(0.7))
                 .frame(width: 10, height: 10)
                 .padding(4)
                 .background(.white.shadow(.drop(color: .black.opacity(0.1), radius: 3)), in: Circle())
@@ -247,7 +268,9 @@ extension Timeline {
                         .blendMode(.destinationOver)
                         .onTapGesture {
                             withAnimation(.easeInOut) {
-//                                task.isCompleted.toggle()
+                                timelineModel.editTimeline = timeline
+                                timelineModel.restoreEditData()
+                                timelineModel.addorEditTimeline.toggle()
                             }
                         }
                 }
@@ -258,15 +281,21 @@ extension Timeline {
                         .thicccboi(18, .semibold)
                         .foregroundColor(Color("Black"))
                     
-                    HStack {
-                        Image(systemName: "stopwatch")
-                            .font(.system(size: 12))
-                            .fontWeight(.light)
-                            .foregroundColor(Color("Gray"))
+                    Spacer()
+                    
+                    VStack(alignment: .center) {
+                        HStack {
+                            Image(systemName: "stopwatch")
+                                .font(.system(size: 12))
+                                .fontWeight(.light)
+                                .foregroundColor(Color("Gray"))
+                            
+                            Text("\(timeline.start?.formattedHourMinuteDifference(to: timeline.end ?? Date()) ?? "N/A")")
+                                .foregroundColor(Color("Black").opacity(0.8))
+                                .thicccboi(12, .bold)
+                        }
                         
-                        Text("\(timeline.start!.formattedHourMinuteDifference(to: timeline.end!))")
-                            .foregroundColor(Color("Black").opacity(0.8))
-                            .thicccboi(12, .bold)
+                        calculatePoints(timeline: timeline)
                     }
                 }
                 
@@ -281,20 +310,75 @@ extension Timeline {
                 }
                 
                 HStack {
-                    Label(timeline.start!.formatToString("HH:ss"), systemImage: "clock")
+                    Label(timeline.start?.formatToString("HH:ss") ?? "N/A", systemImage: "clock")
                         .thicccboi(12, .regular)
                         .foregroundColor(Color.black)
                     
-                    Label(timeline.end!.formatToString("HH:ss"), systemImage: "arrow.forward")
+                    Label(timeline.end?.formatToString("HH:ss") ?? "N/A", systemImage: "arrow.forward")
                         .thicccboi(12, .regular)
                         .foregroundColor(Color.black)
                 }
             })
             .padding(15)
             .hSpacing(.leading)
-            .background(Color(timeline.activity?.color ?? "Brown"), in: RoundedRectangle(cornerRadius: 15))
+            .background(Color(timeline.activity?.color ?? "Brown").opacity(0.6), in: RoundedRectangle(cornerRadius: 15))
         }
         .offset(y: 10)
+        
+    }
+    
+    private func calculatePoints(timeline: TimelineEntry) -> some View {
+        guard let activity = timeline.activity else {
+            return HStack {
+                Image(systemName: "arrow.down.heart")
+                    .font(.system(size: 12))
+                    .foregroundColor(Color("Brown"))
+                Text("No Points")
+                    .foregroundColor(Color("Brown"))
+                    .thicccboi(12, .bold)
+            }
+        }
+        
+        let hourlyRate = 3000.0 / (30 * 24)
+        let points = activity.factor * timeline.start!.hourDifference(to: timeline.end!)  * hourlyRate
+        let pointsString: String
+        let color: Color
+        let iconName: String
+        
+        switch points {
+        case 0:
+            pointsString = ""
+            color = Color("Gray")
+            iconName = "heart"
+        case let x where x > 0:
+            pointsString = "+ \(x.mostTwoDigitsAsNumberString())"
+            color = Color("DarkGreen")
+            iconName = "tree"
+        case let x where x < 0:
+            pointsString = "- \((-x).mostTwoDigitsAsNumberString())"
+            color = Color("DarkOrange")
+            iconName = "drop"
+        default:
+            pointsString = ""
+            color = Color("Gray")
+            iconName = "heart"
+        }
+        
+        return HStack {
+            Image(systemName: iconName)
+                .font(.system(size: 12))
+                .foregroundColor(color)
+            Text(pointsString)
+                .foregroundColor(color)
+                .thicccboi(12, .bold)
+        }
+        
+    }
+    
+    private func calculatePoints() {
+        let points = timelineEntries.map { $0.points }
+        earn = points.filter { $0 > 0 }.reduce(0, +)
+        cost = points.filter { $0 < 0 }.reduce(0, +)
+        total = earn + cost
     }
 }
-

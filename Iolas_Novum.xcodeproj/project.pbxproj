@@ -40,6 +40,8 @@
 		C41F07392A5D5BAF00EB907D /* ContinuousTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07382A5D5BAF00EB907D /* ContinuousTimeline.swift */; };
 		C41F073B2A5D5CFC00EB907D /* AddTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F073A2A5D5CFC00EB907D /* AddTimeline.swift */; };
 		C41F073D2A5D63AA00EB907D /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F073C2A5D63AA00EB907D /* TimelineViewModel.swift */; };
+		C41F073F2A5DB91E00EB907D /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F073E2A5DB91E00EB907D /* Double.swift */; };
+		C41F07412A5DE82700EB907D /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07402A5DE82700EB907D /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		C41F07382A5D5BAF00EB907D /* ContinuousTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousTimeline.swift; sourceTree = "<group>"; };
 		C41F073A2A5D5CFC00EB907D /* AddTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeline.swift; sourceTree = "<group>"; };
 		C41F073C2A5D63AA00EB907D /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
+		C41F073E2A5DB91E00EB907D /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		C41F07402A5DE82700EB907D /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 				C41F07092A5C4E0A00EB907D /* TagViewModel.swift */,
 				C41F073C2A5D63AA00EB907D /* TimelineViewModel.swift */,
 				C41F07192A5C748700EB907D /* DateTimeViewModel.swift */,
+				C41F07402A5DE82700EB907D /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 			children = (
 				C41F07022A5C2EE200EB907D /* Date.swift */,
 				C41F07332A5D55A000EB907D /* View.swift */,
+				C41F073E2A5DB91E00EB907D /* Double.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41F06EB2A5C196300EB907D /* NovumContainer.xcdatamodeld in Sources */,
+				C41F07412A5DE82700EB907D /* UserViewModel.swift in Sources */,
 				C41F07032A5C2EE200EB907D /* Date.swift in Sources */,
 				C41F07052A5C38B200EB907D /* AddActivity.swift in Sources */,
 				C41F06F72A5C268900EB907D /* Today.swift in Sources */,
@@ -310,6 +317,7 @@
 				C41F06FD2A5C2AB700EB907D /* Influence.swift in Sources */,
 				C41F06E82A5C196300EB907D /* Persistence.swift in Sources */,
 				C41F07322A5D42E200EB907D /* Timeline.swift in Sources */,
+				C41F073F2A5DB91E00EB907D /* Double.swift in Sources */,
 				C41F07302A5C80E900EB907D /* Thicccboi.swift in Sources */,
 				C41F071A2A5C748700EB907D /* DateTimeViewModel.swift in Sources */,
 				C41F073B2A5D5CFC00EB907D /* AddTimeline.swift in Sources */,

@@ -82,6 +82,25 @@ extension Date {
         let hourString = hour == 1 ? "hour" : "hours"
         let minuteString = minute == 1 ? "minute" : "minutes"
         
-        return "\(hour) \(hourString) \(minute) \(minuteString)"
+        if hour == 0 {
+            return "\(minute) \(minuteString)"
+        } else if minute == 0 {
+            return "\(hour) \(hourString)"
+        } else {
+            return "\(hour) \(hourString) \(minute) \(minuteString)"
+        }
+        
+    }
+    
+    func hourDifference(to endDate: Date) -> Double {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour, .minute], from: self, to: endDate)
+        
+        let hour = Double(components.hour ?? 0)
+        let minute = Double(components.minute ?? 0)
+        
+        let totalHours = hour + (minute / 60.0)
+        
+        return totalHours
     }
 }

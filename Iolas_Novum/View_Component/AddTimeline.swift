@@ -17,9 +17,11 @@ struct AddTimeline: View {
     
     @Environment(\.self) var env
     @EnvironmentObject var timelineModel: TimelineEntryViewModel
+    
+    let lastTimeline: TimelineEntry?
         
     var body: some View {
-        VStack(alignment: .leading, spacing: 15) {
+        VStack(alignment: .center, spacing: 25) {
             HStack {
                 Button(action: {
                     timelineModel.addorEditTimeline.toggle()
@@ -30,13 +32,27 @@ struct AddTimeline: View {
                         .tint(Color("DarkOrange"))
                 })
                 
+                Spacer()
+                
                 VStack {
-                    Text("Total Record Time: \(formattedHourMinuteDifference(from: timelineModel.start, to: timelineModel.end))")
+                    Text("Total Record Time: \(timelineModel.timeDifferenceString)")
                         .thicccboi(16, .regular)
                     
-                    Text("Points: ")
+                    Text("Points: \(timelineModel.points.mostTwoDigitsAsNumberString())")
                         .thicccboi(16, .regular)
                 }
+                
+                Spacer()
+                
+                Button {
+                    if timelineModel.deleteTimelineEntry(context: env.managedObjectContext){
+                        env.dismiss()
+                    }
+                } label: {
+                    Image(systemName: "trash")
+                }
+                .tint(.red)
+                .opacity(timelineModel.editTimeline == nil ? 0 : 1)
             }
             .hSpacing(.leading)
             
@@ -47,7 +63,9 @@ struct AddTimeline: View {
                         .scaleEffect(0.9, anchor: .leading)
                     
                     Button {
-                        //                        timelineModel.start = Date()
+                        if let lastTimeline = self.lastTimeline {
+                            timelineModel.start = lastTimeline.end!
+                        }
                     } label: {
                         Text("Last")
                             .thicccboi(12, .regular)
@@ -123,20 +141,5 @@ struct AddTimeline: View {
 struct AddTimeline_Previews: PreviewProvider {
     static var previews: some View {
         Home()
-    }
-}
-
-extension AddTimeline {
-    private func formattedHourMinuteDifference(from startDate: Date, to endDate: Date) -> String {
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.hour, .minute], from: startDate, to: endDate)
-        
-        let hour = components.hour ?? 0
-        let minute = components.minute ?? 0
-        
-        let hourString = hour == 1 ? "hour" : "hours"
-        let minuteString = minute == 1 ? "minute" : "minutes"
-        
-        return "\(hour) \(hourString) \(minute) \(minuteString)"
     }
 }
