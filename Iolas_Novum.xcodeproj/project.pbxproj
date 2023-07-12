@@ -37,11 +37,11 @@
 		C41F07322A5D42E200EB907D /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07312A5D42E200EB907D /* Timeline.swift */; };
 		C41F07342A5D55A000EB907D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07332A5D55A000EB907D /* View.swift */; };
 		C41F07372A5D587000EB907D /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07362A5D587000EB907D /* OffsetKey.swift */; };
-		C41F07392A5D5BAF00EB907D /* ContinuousTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07382A5D5BAF00EB907D /* ContinuousTimeline.swift */; };
 		C41F073B2A5D5CFC00EB907D /* AddTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F073A2A5D5CFC00EB907D /* AddTimeline.swift */; };
 		C41F073D2A5D63AA00EB907D /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F073C2A5D63AA00EB907D /* TimelineViewModel.swift */; };
 		C41F073F2A5DB91E00EB907D /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F073E2A5DB91E00EB907D /* Double.swift */; };
 		C41F07412A5DE82700EB907D /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07402A5DE82700EB907D /* UserViewModel.swift */; };
+		C41F07432A5EE9F900EB907D /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07422A5EE9F900EB907D /* UserPreference.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,11 +77,11 @@
 		C41F07312A5D42E200EB907D /* Timeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
 		C41F07332A5D55A000EB907D /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		C41F07362A5D587000EB907D /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
-		C41F07382A5D5BAF00EB907D /* ContinuousTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousTimeline.swift; sourceTree = "<group>"; };
 		C41F073A2A5D5CFC00EB907D /* AddTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeline.swift; sourceTree = "<group>"; };
 		C41F073C2A5D63AA00EB907D /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		C41F073E2A5DB91E00EB907D /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		C41F07402A5DE82700EB907D /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		C41F07422A5EE9F900EB907D /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +146,7 @@
 				C41F06F42A5C220200EB907D /* Home.swift */,
 				C41F06F62A5C268900EB907D /* Today.swift */,
 				C41F07312A5D42E200EB907D /* Timeline.swift */,
+				C41F07422A5EE9F900EB907D /* UserPreference.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,7 +179,6 @@
 				C41F07042A5C38B200EB907D /* AddActivity.swift */,
 				C41F07072A5C427D00EB907D /* TagStub.swift */,
 				C41F070B2A5C579E00EB907D /* TagManagement.swift */,
-				C41F07382A5D5BAF00EB907D /* ContinuousTimeline.swift */,
 				C41F073A2A5D5CFC00EB907D /* AddTimeline.swift */,
 			);
 			path = View_Component;
@@ -318,11 +318,11 @@
 				C41F06E82A5C196300EB907D /* Persistence.swift in Sources */,
 				C41F07322A5D42E200EB907D /* Timeline.swift in Sources */,
 				C41F073F2A5DB91E00EB907D /* Double.swift in Sources */,
+				C41F07432A5EE9F900EB907D /* UserPreference.swift in Sources */,
 				C41F07302A5C80E900EB907D /* Thicccboi.swift in Sources */,
 				C41F071A2A5C748700EB907D /* DateTimeViewModel.swift in Sources */,
 				C41F073B2A5D5CFC00EB907D /* AddTimeline.swift in Sources */,
 				C41F06F52A5C220200EB907D /* Home.swift in Sources */,
-				C41F07392A5D5BAF00EB907D /* ContinuousTimeline.swift in Sources */,
 				C41F07342A5D55A000EB907D /* View.swift in Sources */,
 				C41F073D2A5D63AA00EB907D /* TimelineViewModel.swift in Sources */,
 				C41F06E12A5C196200EB907D /* ContentView.swift in Sources */,

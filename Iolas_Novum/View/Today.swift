@@ -20,40 +20,40 @@ struct Today: View {
     @State private var isEditNavigationActive = false
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                Text("Today")
-                    .font(.title2.bold())
-                    .frame(maxWidth: .infinity)
-                    .overlay(alignment: .trailing) {
-                        Menu {
-                            NavigationLink(destination: AddActivity().environmentObject(activityModel)) {
-                                Text("Add Activity")
-                            }
-                            
-                            NavigationLink(destination: TagManagement(isSelectionMode: false)) {
-                                Text("Add Tag")
-                            }
-                        } label: {
-                            Label(
-                                title: { Text("") },
-                                icon: { Image(systemName: "plus.circle").foregroundColor(Color("DarkGreen")) }
-                            )
+        
+        VStack(spacing: 0) {
+            Text("Today")
+                .font(.title2.bold())
+                .frame(maxWidth: .infinity)
+                .overlay(alignment: .trailing) {
+                    Menu {
+                        NavigationLink(destination: AddActivity().environmentObject(activityModel)) {
+                            Text("Add Activity")
                         }
+                        
+                        NavigationLink(destination: TagManagement(isSelectionMode: false)) {
+                            Text("Add Tag")
+                        }
+                    } label: {
+                        Label(
+                            title: { Text("") },
+                            icon: { Image(systemName: "plus.circle").foregroundColor(Color("DarkGreen")) }
+                        )
                     }
-                    .padding(.bottom, 10)
-                
-                ScrollView(activities.isEmpty ? .init() : .vertical, showsIndicators: false) {
-                    VStack(spacing: 0){
-                        ForEach(activities, id: \.id) { activity in
-                            ActivityCard(activity: activity)
-                        }
+                }
+                .padding(.bottom, 10)
+            
+            ScrollView(activities.isEmpty ? .init() : .vertical, showsIndicators: false) {
+                VStack(spacing: 0){
+                    ForEach(activities, id: \.id) { activity in
+                        ActivityCard(activity: activity)
                     }
                 }
             }
-            .frame(maxHeight: .infinity, alignment: .top)
-            .padding()
         }
+        .frame(maxHeight: .infinity, alignment: .top)
+        .padding()
+        
     }
 }
 

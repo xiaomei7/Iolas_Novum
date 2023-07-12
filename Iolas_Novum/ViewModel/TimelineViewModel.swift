@@ -32,6 +32,7 @@ final class TimelineEntryViewModel: ObservableObject {
     
     // MARK: For View Only
     @Published var timeDifferenceString: String = ""
+    @Published var mostRecentTimeline: TimelineEntry? = nil
 
     // MARK: Functional Variables
     @Published var addorEditTimeline: Bool = false
@@ -151,5 +152,16 @@ final class TimelineEntryViewModel: ObservableObject {
         }
     }
 
+    func getMostRecentTimeline(context: NSManagedObjectContext) {
+        let fetchRequest: NSFetchRequest<TimelineEntry> = TimelineEntry.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \TimelineEntry.end, ascending: false)]
+        fetchRequest.fetchLimit = 1
+
+        do {
+            mostRecentTimeline = try context.fetch(fetchRequest).first ?? nil
+        } catch {
+            print("Failed to fetch timeline entries: \(error)")
+        }
+    }
 
 }

@@ -8,10 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    @Environment(\.managedObjectContext) var context
+    @StateObject var userModel: UserViewModel = UserViewModel()
+    
+    
     var body: some View {
-        NavigationStack {
+        NavigationView {
             Home()
+        }
+        .onAppear {
+            userModel.context = context
+            userModel.fetchUser()
         }
     }
     

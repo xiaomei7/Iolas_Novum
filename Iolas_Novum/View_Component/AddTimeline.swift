@@ -18,8 +18,9 @@ struct AddTimeline: View {
     @Environment(\.self) var env
     @EnvironmentObject var timelineModel: TimelineEntryViewModel
     
-    let lastTimeline: TimelineEntry?
-        
+//    let lastTimeline: TimelineEntry?
+    @State private var errorMessage: String = ""
+    
     var body: some View {
         VStack(alignment: .center, spacing: 25) {
             HStack {
@@ -63,8 +64,10 @@ struct AddTimeline: View {
                         .scaleEffect(0.9, anchor: .leading)
                     
                     Button {
-                        if let lastTimeline = self.lastTimeline {
+                        if let lastTimeline = timelineModel.mostRecentTimeline {
                             timelineModel.start = lastTimeline.end!
+                        } else {
+                            errorMessage = "No last timeline entry."
                         }
                     } label: {
                         Text("Last")
@@ -99,6 +102,12 @@ struct AddTimeline: View {
                             }
                     }
                 }
+                
+                if errorMessage != "" {
+                    Text(errorMessage)
+                        .thicccboi(12, .regular)
+                        .foregroundColor(Color("DarkOrange"))
+                }
             }
             
             HStack {
@@ -120,9 +129,13 @@ struct AddTimeline: View {
             }
             
             Button {
-                if timelineModel.createTimelineEntry(context: env.managedObjectContext) {
+                if timelineModel.end.timeIntervalSince(timelineModel.start) < 60 {
+                    errorMessage = "Time interval must be bigger than 1 minute."
+                } else if timelineModel.createTimelineEntry(context: env.managedObjectContext) {
                     timelineModel.addorEditTimeline.toggle()
                     env.dismiss()
+                } else {
+                    errorMessage = "Error when saving time."
                 }
             } label: {
                 Text("Add Timespent")
@@ -135,6 +148,9 @@ struct AddTimeline: View {
         }
         .padding()
         .vSpacing(.bottom)
+        .onAppear {
+            timelineModel.getMostRecentTimeline(context: env.managedObjectContext)
+        }
     }
 }
 

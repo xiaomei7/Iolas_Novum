@@ -12,19 +12,24 @@ struct Home: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            Timeline()
-                .tabItem{
-                    Image(systemName: "calendar.day.timeline.left")
-                    Text("Timeline")
-                }
-                .tag("Timeline")
+            NavigationView {
+                Timeline()
+            }
+            .tabItem{
+                Image(systemName: "calendar.day.timeline.left")
+                Text("Timeline")
+            }
+            .tag("Timeline")
+            .toolbarBackground(Color("Cream"), for: .tabBar)
             
-            Today()
-                .tabItem {
-                    Image(systemName: "sun.max")
-                    Text("Today")
-                }
-                .tag("Today")
+            NavigationView {
+                Today()
+            }
+            .tabItem {
+                Image(systemName: "sun.max")
+                Text("Today")
+            }
+            .tag("Today")
             
             Text("Timer View")
                 .tabItem {

@@ -82,7 +82,7 @@ struct Timeline: View {
         .sheet(isPresented: $timelineModel.addorEditTimeline, onDismiss: {
             timelineEntries = timelineModel.fetchTimelineEntries(on: currentDate, context: env.managedObjectContext)
         }) {
-            AddTimeline(lastTimeline: timelineEntries.first)
+            AddTimeline()
                 .environmentObject(timelineModel)
                 .presentationDetents([.height(300)])
                 .interactiveDismissDisabled()
@@ -142,7 +142,7 @@ extension Timeline {
                         .foregroundColor(total > 0 ? Color("DarkGreen") : Color("DarkOrange"))
                 }
                 
-                Button(action: {}, label: {
+                NavigationLink(destination: UserPreference()) {
                     Image("avatar")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -152,7 +152,8 @@ extension Timeline {
                             Circle()
                                 .stroke(Color("DarkGreen"), lineWidth: 5)
                         )
-                })
+                }
+                
             }
         })
         .padding(15)
