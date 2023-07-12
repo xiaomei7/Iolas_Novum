@@ -42,6 +42,7 @@
 		C41F073F2A5DB91E00EB907D /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F073E2A5DB91E00EB907D /* Double.swift */; };
 		C41F07412A5DE82700EB907D /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07402A5DE82700EB907D /* UserViewModel.swift */; };
 		C41F07432A5EE9F900EB907D /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07422A5EE9F900EB907D /* UserPreference.swift */; };
+		C41F07452A5F091800EB907D /* EditUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07442A5F091800EB907D /* EditUserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		C41F073E2A5DB91E00EB907D /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		C41F07402A5DE82700EB907D /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		C41F07422A5EE9F900EB907D /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
+		C41F07442A5F091800EB907D /* EditUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				C41F07072A5C427D00EB907D /* TagStub.swift */,
 				C41F070B2A5C579E00EB907D /* TagManagement.swift */,
 				C41F073A2A5D5CFC00EB907D /* AddTimeline.swift */,
+				C41F07442A5F091800EB907D /* EditUserInfo.swift */,
 			);
 			path = View_Component;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			files = (
 				C41F06EB2A5C196300EB907D /* NovumContainer.xcdatamodeld in Sources */,
 				C41F07412A5DE82700EB907D /* UserViewModel.swift in Sources */,
+				C41F07452A5F091800EB907D /* EditUserInfo.swift in Sources */,
 				C41F07032A5C2EE200EB907D /* Date.swift in Sources */,
 				C41F07052A5C38B200EB907D /* AddActivity.swift in Sources */,
 				C41F06F72A5C268900EB907D /* Today.swift in Sources */,

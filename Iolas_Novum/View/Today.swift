@@ -20,7 +20,6 @@ struct Today: View {
     @State private var isEditNavigationActive = false
     
     var body: some View {
-        
         VStack(spacing: 0) {
             Text("Today")
                 .font(.title2.bold())
@@ -29,7 +28,9 @@ struct Today: View {
                     Menu {
                         NavigationLink(destination: AddActivity().environmentObject(activityModel)) {
                             Text("Add Activity")
-                        }
+                        }.simultaneousGesture(TapGesture().onEnded {
+                            print("add activity clicked!")
+                        })
                         
                         NavigationLink(destination: TagManagement(isSelectionMode: false)) {
                             Text("Add Tag")

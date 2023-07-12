@@ -17,6 +17,30 @@ final class UserViewModel: ObservableObject {
     
     var context: NSManagedObjectContext?
     
+    func updateUser(context: NSManagedObjectContext) -> Bool {
+        guard let user = user else { return false }
+        
+        user.name = name
+        user.motto = motto
+        user.income = income
+        
+        if let _ = try? context.save() {
+            return true
+        }
+        return false
+    }
+    
+    func updatePoints(context: NSManagedObjectContext) -> Bool {
+        guard let user = user else { return false }
+        
+        user.points = points
+        
+        if let _ = try? context.save() {
+            return true
+        }
+        return false
+    }
+    
     func fetchUser() {
         let fetchRequest: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
         

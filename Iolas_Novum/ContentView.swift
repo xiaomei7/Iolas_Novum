@@ -13,13 +13,14 @@ struct ContentView: View {
     
     
     var body: some View {
-        NavigationView {
+        NavigationStack { // ??
             Home()
         }
         .onAppear {
             userModel.context = context
             userModel.fetchUser()
         }
+        .environmentObject(userModel)
     }
     
 }
