@@ -21,6 +21,7 @@ struct Timeline: View {
     @State private var cost: Double = 0.0
     @State private var total: Double = 0.0
     
+    @EnvironmentObject var userViewModel: UserViewModel
     @StateObject var timelineModel: TimelineEntryViewModel = .init()
     @Environment(\.self) var env
     
@@ -63,6 +64,8 @@ struct Timeline: View {
             .padding(15)
         })
         .onAppear(perform: {
+            timelineModel.income = userViewModel.income
+            
             if weekSlider.isEmpty {
                 let currentWeek = Date().fetchWeek()
                 
@@ -312,26 +315,11 @@ extension Timeline {
                     }
                 }
                 
-                //                if let description = timeline.describe {
-                //                    Text(description)
-                //                        .thicccboi(14, .light)
-                //                        .foregroundColor(Color("Gray"))
-                //                }
                 if timeline.describe != "" {
                     Text(timeline.describe!)
                         .thicccboi(14, .light)
                         .foregroundColor(Color("Gray"))
                 }
-                
-                //                if let tags = timeline.activity?.tags {
-                //                    ScrollView(.horizontal, showsIndicators: true) {
-                //                        HStack {
-                //                            ForEach(Array(tags as! Set<TagEntity>), id: \.id) { tag in
-                //                                TagStub(tag: tag, hasDelete: false, tags: .constant(Set<TagEntity>()))
-                //                            }
-                //                        }
-                //                    }
-                //                }
                 
                 if (timeline.activity != nil) && timeline.activity!.tags?.count != 0 {
                     ScrollView(.horizontal, showsIndicators: true) {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var context
-    @StateObject var userModel: UserViewModel = UserViewModel()
+    @StateObject var userModel: UserViewModel = .init()
     
     
     var body: some View {

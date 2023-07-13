@@ -12,18 +12,24 @@ final class TimelineEntryViewModel: ObservableObject {
     // MARK: Timeline Entry Properties
     @Published var activity: ActivityEntity? = nil {
         didSet {
-            calculatePoints()
+            if let income = income {
+                calculatePoints(income: income)
+            }
         }
     }
     @Published var start: Date = Date().addingTimeInterval(-600) {
         didSet {
-            calculatePoints()
+            if let income = income {
+                calculatePoints(income: income)
+            }
             calculateHourMinuteDifference()
         }
     }
     @Published var end: Date = Date() {
         didSet {
-            calculatePoints()
+            if let income = income {
+                calculatePoints(income: income)
+            }
             calculateHourMinuteDifference()
         }
     }
@@ -33,11 +39,16 @@ final class TimelineEntryViewModel: ObservableObject {
     // MARK: For View Only
     @Published var timeDifferenceString: String = ""
     @Published var mostRecentTimeline: TimelineEntry? = nil
-
+    
     // MARK: Functional Variables
     @Published var addorEditTimeline: Bool = false
     @Published var editTimeline: TimelineEntry?
-
+    @Published var income: Double? {
+        didSet {
+            print("⚠️ Income in TimelineViewModel is set?", income ?? "Not set.")
+        }
+    }
+    
     func createTimelineEntry(context: NSManagedObjectContext) -> Bool {
         let timelineEntry = TimelineEntry(context: context)
         timelineEntry.id = UUID()
@@ -46,15 +57,15 @@ final class TimelineEntryViewModel: ObservableObject {
         timelineEntry.end = end
         timelineEntry.describe = description
         timelineEntry.points = points
-
+        
         if let _ = try? context.save(){
             return true
         }
         
         return false
     }
-
-
+    
+    
     func updateTimelineEntry(context: NSManagedObjectContext) -> Bool {
         if let timelineEntry = editTimeline {
             timelineEntry.activity = activity
@@ -70,7 +81,7 @@ final class TimelineEntryViewModel: ObservableObject {
         
         return false
     }
-
+    
     // Delete
     func deleteTimelineEntry(context: NSManagedObjectContext) -> Bool {
         if let timelineEntry = editTimeline {
@@ -124,10 +135,10 @@ final class TimelineEntryViewModel: ObservableObject {
         }
     }
     
-    private func calculatePoints() {
+    private func calculatePoints(income: Double) {
         guard let activity = activity else { return }
         
-        let hourlyRate = 3000.0 / (30 * 24)
+        let hourlyRate = income / (30 * 24)
         let currentpPoints = activity.factor * start.hourDifference(to: end)  * hourlyRate
         
         points = currentpPoints
@@ -151,17 +162,17 @@ final class TimelineEntryViewModel: ObservableObject {
             timeDifferenceString = "\(hour) \(hourString) \(minute) \(minuteString)"
         }
     }
-
+    
     func getMostRecentTimeline(context: NSManagedObjectContext) {
         let fetchRequest: NSFetchRequest<TimelineEntry> = TimelineEntry.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \TimelineEntry.end, ascending: false)]
         fetchRequest.fetchLimit = 1
-
+        
         do {
             mostRecentTimeline = try context.fetch(fetchRequest).first ?? nil
         } catch {
             print("Failed to fetch timeline entries: \(error)")
         }
     }
-
+    
 }

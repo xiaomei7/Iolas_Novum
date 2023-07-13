@@ -43,6 +43,8 @@
 		C41F07412A5DE82700EB907D /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07402A5DE82700EB907D /* UserViewModel.swift */; };
 		C41F07432A5EE9F900EB907D /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07422A5EE9F900EB907D /* UserPreference.swift */; };
 		C41F07452A5F091800EB907D /* EditUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07442A5F091800EB907D /* EditUserInfo.swift */; };
+		C41F07472A5FF8FB00EB907D /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07462A5FF8FB00EB907D /* Stopwatch.swift */; };
+		C41F07492A5FF9D700EB907D /* StopwatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07482A5FF9D700EB907D /* StopwatchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		C41F07402A5DE82700EB907D /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		C41F07422A5EE9F900EB907D /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
 		C41F07442A5F091800EB907D /* EditUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfo.swift; sourceTree = "<group>"; };
+		C41F07462A5FF8FB00EB907D /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
+		C41F07482A5FF9D700EB907D /* StopwatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 				C41F06F62A5C268900EB907D /* Today.swift */,
 				C41F07312A5D42E200EB907D /* Timeline.swift */,
 				C41F07422A5EE9F900EB907D /* UserPreference.swift */,
+				C41F07462A5FF8FB00EB907D /* Stopwatch.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 				C41F073C2A5D63AA00EB907D /* TimelineViewModel.swift */,
 				C41F07192A5C748700EB907D /* DateTimeViewModel.swift */,
 				C41F07402A5DE82700EB907D /* UserViewModel.swift */,
+				C41F07482A5FF9D700EB907D /* StopwatchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41F06EB2A5C196300EB907D /* NovumContainer.xcdatamodeld in Sources */,
+				C41F07472A5FF8FB00EB907D /* Stopwatch.swift in Sources */,
 				C41F07412A5DE82700EB907D /* UserViewModel.swift in Sources */,
 				C41F07452A5F091800EB907D /* EditUserInfo.swift in Sources */,
 				C41F07032A5C2EE200EB907D /* Date.swift in Sources */,
@@ -327,6 +334,7 @@
 				C41F071A2A5C748700EB907D /* DateTimeViewModel.swift in Sources */,
 				C41F073B2A5D5CFC00EB907D /* AddTimeline.swift in Sources */,
 				C41F06F52A5C220200EB907D /* Home.swift in Sources */,
+				C41F07492A5FF9D700EB907D /* StopwatchViewModel.swift in Sources */,
 				C41F07342A5D55A000EB907D /* View.swift in Sources */,
 				C41F073D2A5D63AA00EB907D /* TimelineViewModel.swift in Sources */,
 				C41F06E12A5C196200EB907D /* ContentView.swift in Sources */,

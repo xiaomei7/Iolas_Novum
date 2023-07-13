@@ -31,7 +31,7 @@ struct Home: View {
             }
             .tag("Today")
             
-            Text("Timer View")
+            Stopwatch()
                 .tabItem {
                     Image(systemName: "digitalcrown.arrow.clockwise")
                     Text("Timer")
