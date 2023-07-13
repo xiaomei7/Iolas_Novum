@@ -17,10 +17,14 @@ final class StopwatchViewModel: ObservableObject {
     @Published var stopwatchState: StopwatchState = .stopped
     @Published var elapsedTime: Float = 0
     
+    @Published var startTime: Date?
+    @Published var endTime: Date?
+    
     private var timer: Timer?
     
     func start() {
         stopwatchState = .running
+        startTime = Date()
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             self.elapsedTime += 1
         }
@@ -34,6 +38,7 @@ final class StopwatchViewModel: ObservableObject {
     
     func stop() {
         stopwatchState = .stopped
+        endTime = Date()
         timer?.invalidate()
         timer = nil
         elapsedTime = 0

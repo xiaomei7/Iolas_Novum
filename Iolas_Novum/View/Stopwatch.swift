@@ -8,7 +8,15 @@
 import SwiftUI
 
 struct Stopwatch: View {
-    @StateObject var stopwatchModel : StopwatchViewModel = .init()
+    @FetchRequest(
+        entity: ActivityEntity.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \ActivityEntity.name, ascending: false)],
+        predicate: nil,
+        animation: .easeInOut)
+    var activities: FetchedResults<ActivityEntity>
+    
+    @Environment(\.self) var env
+    @EnvironmentObject var stopwatchModel: StopwatchViewModel
     @EnvironmentObject var timelineModel: TimelineEntryViewModel
             
     var body: some View {
@@ -16,10 +24,25 @@ struct Stopwatch: View {
             Color("Cream").ignoresSafeArea()
             
             VStack(spacing: 10) {
+                Picker(
+                    "Select Activity",
+                    selection: $timelineModel.activity) {
+                        Text("No Activity").tag(nil as ActivityEntity?)
+                        ForEach(activities, id: \.id) { activity in
+                            Text(activity.name ?? "Activity Name")
+                                .tag(activity as ActivityEntity?)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                    .frame(width: UIScreen.main.bounds.width * 2/3)
+                
                 TimerRing
                 
                 Buttons
             }
+        }
+        .onAppear {
+            timelineModel.resetData()
         }
     }
 }
@@ -111,6 +134,9 @@ extension Stopwatch {
             if stopwatchModel.stopwatchState != .stopped {
                 Button {
                     stopwatchModel.stop()
+                    timelineModel.start = stopwatchModel.startTime ?? Date()
+                    timelineModel.end = stopwatchModel.endTime ?? Date()
+                    timelineModel.createTimelineEntry(context: env.managedObjectContext)
                 } label: {
                     Image(systemName: "stop.fill")
                         .font(.title2.bold())

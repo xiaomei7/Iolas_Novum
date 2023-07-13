@@ -23,7 +23,10 @@ struct Timeline: View {
     
     @EnvironmentObject var userViewModel: UserViewModel
     @EnvironmentObject var timelineModel: TimelineEntryViewModel
+    @EnvironmentObject var stopwatchModel: StopwatchViewModel
     @Environment(\.self) var env
+    
+    @Binding var selectedTab: String
     
     @Namespace private var animation
     
@@ -111,6 +114,17 @@ extension Timeline {
                 
                 Text(currentDate.formatToString("YYYY"))
                     .foregroundColor(Color("Brown"))
+                Button {
+                    stopwatchModel.start()
+                    selectedTab = "Timer"
+                } label: {
+                    Image(systemName: "play")
+                        .font(.system(size: 12))
+                        .foregroundStyle(.white)
+                        .frame(width: 25, height: 25)
+                        .background(Color("CreamGreen").shadow(.drop(color: .black.opacity(0.25), radius: 5, x: 10, y: 10)), in: Circle())
+                }
+                
             }
             .thicccboi(28, .thick)
             

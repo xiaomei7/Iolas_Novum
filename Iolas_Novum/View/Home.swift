@@ -12,13 +12,15 @@ struct Home: View {
     @Environment(\.scenePhase) var phase
     
     @StateObject var timelineModel: TimelineEntryViewModel = .init()
+    @StateObject var stopwatchModel : StopwatchViewModel = .init()
     
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationView {
-                Timeline()
+                Timeline(selectedTab: $selectedTab)
             }
             .environmentObject(timelineModel)
+            .environmentObject(stopwatchModel)
             .tabItem{
                 Image(systemName: "calendar.day.timeline.left")
                 Text("Timeline")
@@ -37,6 +39,7 @@ struct Home: View {
             
             Stopwatch()
                 .environmentObject(timelineModel)
+                .environmentObject(stopwatchModel)
                 .tabItem {
                     Image(systemName: "digitalcrown.arrow.clockwise")
                     Text("Timer")
