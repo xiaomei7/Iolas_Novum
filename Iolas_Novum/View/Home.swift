@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Home: View {
     @State private var selectedTab: String = "Timeline"
+    @Environment(\.scenePhase) var phase
     
     var body: some View {
         TabView(selection: $selectedTab) {

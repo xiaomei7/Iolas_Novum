@@ -10,6 +10,8 @@ import SwiftUI
 struct Stopwatch: View {
     @StateObject var stopwatchModel : StopwatchViewModel = .init()
     
+    @State var lastActiveTimeStamp: Date = Date()
+    
     var body: some View {
         ZStack {
             Color("Cream").ignoresSafeArea()

@@ -11,7 +11,6 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var context
     @StateObject var userModel: UserViewModel = .init()
     
-    
     var body: some View {
         NavigationStack { // ??
             Home()
