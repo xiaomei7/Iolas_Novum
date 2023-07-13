@@ -11,11 +11,14 @@ struct Home: View {
     @State private var selectedTab: String = "Timeline"
     @Environment(\.scenePhase) var phase
     
+    @StateObject var timelineModel: TimelineEntryViewModel = .init()
+    
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationView {
                 Timeline()
             }
+            .environmentObject(timelineModel)
             .tabItem{
                 Image(systemName: "calendar.day.timeline.left")
                 Text("Timeline")
@@ -33,6 +36,7 @@ struct Home: View {
             .tag("Today")
             
             Stopwatch()
+                .environmentObject(timelineModel)
                 .tabItem {
                     Image(systemName: "digitalcrown.arrow.clockwise")
                     Text("Timer")

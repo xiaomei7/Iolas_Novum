@@ -41,7 +41,13 @@ final class TimelineEntryViewModel: ObservableObject {
     @Published var mostRecentTimeline: TimelineEntry? = nil
     
     // MARK: Functional Variables
-    @Published var addorEditTimeline: Bool = false
+    @Published var addorEditTimeline: Bool = false {
+        didSet {
+            if !addorEditTimeline {
+                resetData()
+            }
+        }
+    }
     @Published var editTimeline: TimelineEntry?
     @Published var income: Double? {
         didSet {
@@ -105,6 +111,8 @@ final class TimelineEntryViewModel: ObservableObject {
     }
     
     func resetData() {
+        print("⚠️ TimelineViewModel data reseted")
+        
         activity = nil
         start = Date().addingTimeInterval(-3600)
         end = Date()

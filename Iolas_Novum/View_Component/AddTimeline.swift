@@ -18,7 +18,7 @@ struct AddTimeline: View {
     @Environment(\.self) var env
     @EnvironmentObject var timelineModel: TimelineEntryViewModel
     
-//    let lastTimeline: TimelineEntry?
+    //    let lastTimeline: TimelineEntry?
     @State private var errorMessage: String = ""
     
     var body: some View {
@@ -131,6 +131,13 @@ struct AddTimeline: View {
             Button {
                 if timelineModel.end.timeIntervalSince(timelineModel.start) < 60 {
                     errorMessage = "Time interval must be bigger than 1 minute."
+                } else if timelineModel.editTimeline != nil {
+                    if timelineModel.updateTimelineEntry(context: env.managedObjectContext) {
+                        timelineModel.addorEditTimeline.toggle()
+                        env.dismiss()
+                    } else {
+                        errorMessage = "Error when updating time."
+                    }
                 } else if timelineModel.createTimelineEntry(context: env.managedObjectContext) {
                     timelineModel.addorEditTimeline.toggle()
                     env.dismiss()

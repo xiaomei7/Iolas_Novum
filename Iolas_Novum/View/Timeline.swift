@@ -22,7 +22,7 @@ struct Timeline: View {
     @State private var total: Double = 0.0
     
     @EnvironmentObject var userViewModel: UserViewModel
-    @StateObject var timelineModel: TimelineEntryViewModel = .init()
+    @EnvironmentObject var timelineModel: TimelineEntryViewModel
     @Environment(\.self) var env
     
     @Namespace private var animation
