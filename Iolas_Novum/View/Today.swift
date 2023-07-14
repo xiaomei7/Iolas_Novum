@@ -22,7 +22,7 @@ struct Today: View {
     var body: some View {
         VStack(spacing: 0) {
             Text("Today")
-                .font(.title2.bold())
+                .thicccboi(18, .bold)
                 .frame(maxWidth: .infinity)
                 .overlay(alignment: .trailing) {
                     Menu {
@@ -81,7 +81,6 @@ extension Today {
                     activityModel.editActivity = activity
                     activityModel.restoreEditData()
                 })
-                
                 
             }
             

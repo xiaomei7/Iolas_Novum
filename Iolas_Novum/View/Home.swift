@@ -54,7 +54,7 @@ struct Home: View {
                 }
                 .tag("Statistic")
             
-            Text("Shop View")
+            Shop()
                 .tabItem {
                     Image(systemName: "fleuron")
                     Text("Shop")

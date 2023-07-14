@@ -60,7 +60,7 @@ struct Timeline: View {
             }, label: {
                 Image(systemName: "plus")
                     .fontWeight(.semibold)
-                    .foregroundStyle(.white)
+                    .foregroundColor(Color("Cream"))
                     .frame(width: 55, height: 55)
                     .background(Color("DarkGreen").shadow(.drop(color: .black.opacity(0.25), radius: 5, x: 10, y: 10)), in: Circle())
             })
@@ -340,7 +340,7 @@ extension Timeline {
                     }
                 }
                 
-                if timeline.describe != "" {
+                if timeline.describe != nil && timeline.describe != "" {
                     Text(timeline.describe!)
                         .thicccboi(14, .light)
                         .foregroundColor(Color("Gray"))

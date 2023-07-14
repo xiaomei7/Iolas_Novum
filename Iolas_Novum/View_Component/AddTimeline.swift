@@ -21,18 +21,20 @@ struct AddTimeline: View {
     
     //    let lastTimeline: TimelineEntry?
     @State private var errorMessage: String = ""
+    @State private var oldTimelinePoints: Double = 0.0
     
     var body: some View {
         VStack(alignment: .center, spacing: 25) {
             HStack {
-                Button(action: {
+                
+                Button {
                     timelineModel.addorEditTimeline.toggle()
                     env.dismiss()
-                }, label: {
+                } label: {
                     Image(systemName: "xmark.circle.fill")
                         .font(.title)
                         .tint(Color("DarkOrange"))
-                })
+                }
                 
                 Spacer()
                 
@@ -135,15 +137,18 @@ struct AddTimeline: View {
                 } else if timelineModel.editTimeline != nil {
                     if timelineModel.updateTimelineEntry(context: env.managedObjectContext) {
                         userModel.points += timelineModel.points
-                        timelineModel.addorEditTimeline.toggle()
-                        env.dismiss()
+                        userModel.points -= oldTimelinePoints
+                        if userModel.updatePoints(context: env.managedObjectContext) {
+                            env.dismiss()
+                        }
                     } else {
                         errorMessage = "Error when updating time."
                     }
                 } else if timelineModel.createTimelineEntry(context: env.managedObjectContext) {
                     userModel.points += timelineModel.points
-                    timelineModel.addorEditTimeline.toggle()
-                    env.dismiss()
+                    if userModel.updatePoints(context: env.managedObjectContext) {
+                        env.dismiss()
+                    }
                 } else {
                     errorMessage = "Error when saving time."
                 }
@@ -160,6 +165,9 @@ struct AddTimeline: View {
         .vSpacing(.bottom)
         .onAppear {
             timelineModel.getMostRecentTimeline(context: env.managedObjectContext)
+            if timelineModel.editTimeline != nil {
+                oldTimelinePoints = timelineModel.editTimeline?.points ?? 0.0
+            }
         }
     }
 }

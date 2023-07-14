@@ -18,6 +18,7 @@ struct Stopwatch: View {
     @Environment(\.self) var env
     @EnvironmentObject var stopwatchModel: StopwatchViewModel
     @EnvironmentObject var timelineModel: TimelineEntryViewModel
+    @EnvironmentObject var userModel: UserViewModel
             
     var body: some View {
         ZStack {
@@ -136,7 +137,12 @@ extension Stopwatch {
                     stopwatchModel.stop()
                     timelineModel.start = stopwatchModel.startTime ?? Date()
                     timelineModel.end = stopwatchModel.endTime ?? Date()
-                    timelineModel.createTimelineEntry(context: env.managedObjectContext)
+                    if timelineModel.createTimelineEntry(context: env.managedObjectContext) {
+                        userModel.points += timelineModel.points
+                        if userModel.updatePoints(context: env.managedObjectContext) {
+                            env.dismiss()
+                        }
+                    }
                 } label: {
                     Image(systemName: "stop.fill")
                         .font(.title2.bold())
