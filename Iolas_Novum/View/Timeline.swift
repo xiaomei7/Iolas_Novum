@@ -21,7 +21,7 @@ struct Timeline: View {
     @State private var cost: Double = 0.0
     @State private var total: Double = 0.0
     
-    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var userModel: UserViewModel
     @EnvironmentObject var timelineModel: TimelineEntryViewModel
     @EnvironmentObject var stopwatchModel: StopwatchViewModel
     @Environment(\.self) var env
@@ -67,7 +67,7 @@ struct Timeline: View {
             .padding(15)
         })
         .onAppear(perform: {
-            timelineModel.income = userViewModel.income
+            timelineModel.income = userModel.income
             
             if weekSlider.isEmpty {
                 let currentWeek = Date().fetchWeek()
@@ -89,6 +89,7 @@ struct Timeline: View {
             timelineEntries = timelineModel.fetchTimelineEntries(on: currentDate, context: env.managedObjectContext)
         }) {
             AddTimeline()
+                .environmentObject(userModel)
                 .environmentObject(timelineModel)
                 .presentationDetents([.height(300)])
                 .interactiveDismissDisabled()
@@ -123,6 +124,16 @@ extension Timeline {
                         .foregroundStyle(.white)
                         .frame(width: 25, height: 25)
                         .background(Color("CreamGreen").shadow(.drop(color: .black.opacity(0.25), radius: 5, x: 10, y: 10)), in: Circle())
+                }
+                
+                Button {
+                    
+                } label: {
+                    Image(systemName: "carrot")
+                        .font(.system(size: 12))
+                        .foregroundStyle(.white)
+                        .frame(width: 25, height: 25)
+                        .background(Color("Orange").shadow(.drop(color: .black.opacity(0.25), radius: 5, x: 10, y: 10)), in: Circle())
                 }
                 
             }

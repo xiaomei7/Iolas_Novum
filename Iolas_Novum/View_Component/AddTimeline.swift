@@ -17,6 +17,7 @@ struct AddTimeline: View {
     
     @Environment(\.self) var env
     @EnvironmentObject var timelineModel: TimelineEntryViewModel
+    @EnvironmentObject var userModel: UserViewModel
     
     //    let lastTimeline: TimelineEntry?
     @State private var errorMessage: String = ""
@@ -133,12 +134,14 @@ struct AddTimeline: View {
                     errorMessage = "Time interval must be bigger than 1 minute."
                 } else if timelineModel.editTimeline != nil {
                     if timelineModel.updateTimelineEntry(context: env.managedObjectContext) {
+                        userModel.points += timelineModel.points
                         timelineModel.addorEditTimeline.toggle()
                         env.dismiss()
                     } else {
                         errorMessage = "Error when updating time."
                     }
                 } else if timelineModel.createTimelineEntry(context: env.managedObjectContext) {
+                    userModel.points += timelineModel.points
                     timelineModel.addorEditTimeline.toggle()
                     env.dismiss()
                 } else {

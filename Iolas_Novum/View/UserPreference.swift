@@ -44,7 +44,7 @@ struct UserPreference: View {
             HStack {
                 Image(systemName: "sparkles")
                 
-                Text("Total Poins: ")
+                Text("Current Poins: ")
                     .thicccboi(16, .thin)
                 
                 Text("\(userModel.points.mostTwoDigitsAsNumberString())")
@@ -55,7 +55,7 @@ struct UserPreference: View {
             HStack {
                 Image(systemName: "moon.stars")
                 
-                Text("Income: ")
+                Text("Income (Baseline): ")
                     .thicccboi(16, .thin)
                 
                 Text("\(userModel.income.mostTwoDigitsAsNumberString())")

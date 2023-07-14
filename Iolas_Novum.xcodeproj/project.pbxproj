@@ -251,6 +251,8 @@
 			dependencies = (
 			);
 			name = Iolas_Novum;
+			packageProductDependencies = (
+			);
 			productName = Iolas_Novum;
 			productReference = C41F06DB2A5C196200EB907D /* Iolas_Novum.app */;
 			productType = "com.apple.product-type.application";
@@ -279,6 +281,8 @@
 				Base,
 			);
 			mainGroup = C41F06D22A5C196200EB907D;
+			packageReferences = (
+			);
 			productRefGroup = C41F06DC2A5C196200EB907D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
