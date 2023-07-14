@@ -34,7 +34,7 @@ struct Iolas_NovumApp: App {
                 try context.save()
             }
         } catch {
-            print("Failed to fetch User: \(error)")
+            print("⛔️ Failed to fetch User: \(error)")
         }
     }
     

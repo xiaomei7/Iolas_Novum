@@ -73,7 +73,7 @@ final class UserViewModel: ObservableObject {
                 }
             }
         } catch {
-            print("Failed to fetch User: \(error)")
+            print("⛔️ Failed to fetch User: \(error)")
         }
     }
 }

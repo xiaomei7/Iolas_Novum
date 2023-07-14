@@ -119,7 +119,6 @@ extension Shop {
                 .foregroundColor(Color("Orange"))
             
             Button {
-                print("Button clicked", userModel.points, item.price)
                 if userModel.points < item.price {
                     showPopupError.toggle()
                 } else {

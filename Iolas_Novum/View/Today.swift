@@ -28,9 +28,7 @@ struct Today: View {
                     Menu {
                         NavigationLink(destination: AddActivity().environmentObject(activityModel)) {
                             Text("Add Activity")
-                        }.simultaneousGesture(TapGesture().onEnded {
-                            print("add activity clicked!")
-                        })
+                        }
                         
                         NavigationLink(destination: TagManagement(isSelectionMode: false)) {
                             Text("Add Tag")

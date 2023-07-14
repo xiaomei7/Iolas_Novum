@@ -179,7 +179,7 @@ final class TimelineEntryViewModel: ObservableObject {
         do {
             mostRecentTimeline = try context.fetch(fetchRequest).first ?? nil
         } catch {
-            print("Failed to fetch timeline entries: \(error)")
+            print("⛔️ Failed to fetch timeline entries: \(error)")
         }
     }
     
