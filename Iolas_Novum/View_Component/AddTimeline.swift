@@ -50,8 +50,11 @@ struct AddTimeline: View {
                 Spacer()
                 
                 Button {
-                    if timelineModel.deleteTimelineEntry(context: env.managedObjectContext){
-                        env.dismiss()
+                    if timelineModel.deleteTimelineEntry(context: env.managedObjectContext) {
+                        activityStatModel.activity = timelineModel.activity
+                        if activityStatModel.createOrUpdateActivityStats(context: env.managedObjectContext, oldDurations: oldDuration, newDurations: [:]) {
+                            env.dismiss()
+                        }
                     }
                 } label: {
                     Image(systemName: "trash")

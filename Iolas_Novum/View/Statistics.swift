@@ -15,17 +15,25 @@ struct Statistics: View {
         animation: .easeInOut)
     var activityStats: FetchedResults<ActivityStats>
     
+    let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return formatter
+    }()
+    
     
     var body: some View {
         ZStack {
             Color("Cream").ignoresSafeArea()
             
-            ForEach(activityStats, id: \.id) { activityStat in
-                VStack {
-                    Text("Statistic")
-                    Text("\(activityStat.date ?? Date(), formatter: DateFormatter())")
-                    Text("\(activityStat.activity?.name ?? "Unallocated")")
-                    Text("\(activityStat.accumulateTime.asMinutes()) minutes")
+            VStack {
+                ForEach(activityStats, id: \.id) { activityStat in
+                    VStack {
+                        Text("Statistic")
+                        Text("\(activityStat.date ?? Date(), formatter: formatter)")
+                        Text("\(activityStat.activity?.name ?? "Unallocated")")
+                        Text("\(activityStat.accumulateTime.asMinutes()) minutes")
+                    }
                 }
             }
         }

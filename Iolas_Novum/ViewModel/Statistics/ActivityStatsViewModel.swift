@@ -51,6 +51,7 @@ class ActivityStatsViewModel: ObservableObject {
             for (date, duration) in newDurations {
                 if !results.contains(where: { $0.date! == date }) {
                     let activityStats = ActivityStats(context: context)
+                    activityStats.id = UUID()
                     activityStats.activity = activity
                     activityStats.date = date
                     activityStats.accumulateTime = duration
