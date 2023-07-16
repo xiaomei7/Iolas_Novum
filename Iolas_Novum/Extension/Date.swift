@@ -8,6 +8,10 @@
 import Foundation
 
 extension Date {
+    var startOfDay: Date {
+        return Calendar.current.startOfDay(for: self)
+    }
+    
     func formatToString(_ format: String) -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = format
@@ -17,6 +21,10 @@ extension Date {
     
     var isToday: Bool {
         return Calendar.current.isDateInToday(self)
+    }
+    
+    func isSameDay(as otherDate: Date) -> Bool {
+        return Calendar.current.isDate(self, inSameDayAs: otherDate)
     }
     
     var isSameHour: Bool {
@@ -103,4 +111,75 @@ extension Date {
         
         return totalHours
     }
+    
+    static func createDate(_ day: Int, _ month: Int, _ year: Int) -> Date {
+        var components = DateComponents()
+        components.day = day
+        components.month = month
+        components.year = year
+        
+        let calendar = Calendar.current
+        let date = calendar.date(from: components) ?? .init()
+        
+        return date
+    }
+    
+    static func calculateDurations(date1: Date, date2: Date) -> [Date: TimeInterval] {
+        var durations = [Date: TimeInterval]()
+        
+        let calendar = Calendar.current
+        let startOfDay1 = calendar.startOfDay(for: date1)
+        let startOfDay2 = calendar.startOfDay(for: date2)
+        
+        if startOfDay1 == startOfDay2 {
+            // The two dates are on the same day.
+            let duration = date2.timeIntervalSince(date1)
+            durations[startOfDay1] = duration
+        } else {
+            // The two dates are on different days.
+            if let endOfDay1 = calendar.date(byAdding: .day, value: 1, to: startOfDay1) {
+                let duration1 = endOfDay1.timeIntervalSince(date1)
+                durations[startOfDay1] = duration1
+            }
+            
+            if let startOfNextDay2 = calendar.date(byAdding: .day, value: -1, to: startOfDay2) {
+                let duration2 = date2.timeIntervalSince(startOfNextDay2)
+                durations[startOfDay2] = duration2
+            }
+        }
+        
+        return durations
+    }
+    
+    static func calculateDurationsForMultipleDay(date1: Date, date2: Date) -> [Date: TimeInterval] {
+        var durations = [Date: TimeInterval]()
+        
+        let calendar = Calendar.current
+        var currentDate = calendar.startOfDay(for: date1)
+        let endDate = calendar.startOfDay(for: date2)
+        
+        while currentDate <= endDate {
+            if let endOfDay = calendar.date(byAdding: .day, value: 1, to: currentDate) {
+                if currentDate == calendar.startOfDay(for: date1) {
+                    // The first day.
+                    let duration = endOfDay.timeIntervalSince(date1)
+                    durations[currentDate] = duration
+                } else if currentDate == endDate {
+                    // The last day.
+                    let duration = date2.timeIntervalSince(currentDate)
+                    durations[currentDate] = duration
+                } else {
+                    // Any day in between.
+                    let duration = endOfDay.timeIntervalSince(currentDate)
+                    durations[currentDate] = duration
+                }
+                
+                currentDate = endOfDay
+            }
+        }
+        
+        return durations
+    }
+    
+    
 }

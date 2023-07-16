@@ -10,8 +10,21 @@
         <attribute name="influence" attributeType="String"/>
         <attribute name="isArchived" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
+        <relationship name="activityStats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityStats" inverseName="activity" inverseEntity="ActivityStats"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TagEntity" inverseName="activities" inverseEntity="TagEntity"/>
-        <relationship name="timelineEntries" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimelineEntry" inverseName="activity" inverseEntity="TimelineEntry"/>
+        <relationship name="timelineEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TimelineEntry" inverseName="activity" inverseEntity="TimelineEntry"/>
+    </entity>
+    <entity name="ActivityStats" representedClassName="ActivityStats" syncable="YES" codeGenerationType="class">
+        <attribute name="accumulateTime" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="activity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityEntity" inverseName="activityStats" inverseEntity="ActivityEntity"/>
+        <relationship name="dailyStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyStats" inverseName="activitiesStats" inverseEntity="DailyStats"/>
+    </entity>
+    <entity name="DailyStats" representedClassName="DailyStats" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="activitiesStats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityStats" inverseName="dailyStats" inverseEntity="ActivityStats"/>
     </entity>
     <entity name="ShopItem" representedClassName="ShopItem" syncable="YES" codeGenerationType="class">
         <attribute name="describe" attributeType="String"/>
