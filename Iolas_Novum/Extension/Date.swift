@@ -8,6 +8,12 @@
 import Foundation
 
 extension Date {
+    
+    struct WeekDay: Identifiable {
+        var id: UUID = .init()
+        var date: Date
+    }
+    
     var startOfDay: Date {
         return Calendar.current.startOfDay(for: self)
     }
@@ -33,6 +39,12 @@ extension Date {
     
     var isPast: Bool {
         return Calendar.current.compare(self, to: .init(), toGranularity: .hour) == .orderedAscending
+    }
+    
+    func startOfWeek(using calendar: Calendar = .current) -> Date {
+        let weekday = calendar.component(.weekday, from: self)
+        let startOfWeek = calendar.date(byAdding: .day, value: 2 - weekday, to: self.startOfDay)!
+        return startOfWeek
     }
     
     func fetchWeek(_ date: Date = .init()) -> [WeekDay] {
@@ -75,9 +87,16 @@ extension Date {
         return fetchWeek(previousDate)
     }
     
-    struct WeekDay: Identifiable {
-        var id: UUID = .init()
-        var date: Date
+    func startOfMonth() -> Date {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month], from: self)
+        return calendar.date(from: components)!
+    }
+    
+    func endOfMonth() -> Date {
+        let calendar = Calendar.current
+        let components = DateComponents(month: 1, second: -1)
+        return calendar.date(byAdding: components, to: self.startOfMonth())!
     }
     
     func formattedHourMinuteDifference(to endDate: Date) -> String {
