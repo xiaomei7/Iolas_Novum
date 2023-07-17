@@ -52,6 +52,7 @@
 		C46CC1432A6330CB00F717D4 /* ActivityStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1422A6330CB00F717D4 /* ActivityStatsViewModel.swift */; };
 		C46CC1452A64041200F717D4 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1442A64041200F717D4 /* TimeInterval.swift */; };
 		C46CC1472A6425D800F717D4 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1462A6425D800F717D4 /* Statistics.swift */; };
+		C46CC14C2A6566C700F717D4 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = C46CC14B2A6566C700F717D4 /* SwiftUICharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C46CC13B2A61A56D00F717D4 /* PopupView in Frameworks */,
+				C46CC14C2A6566C700F717D4 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +291,7 @@
 			name = Iolas_Novum;
 			packageProductDependencies = (
 				C46CC13A2A61A56D00F717D4 /* PopupView */,
+				C46CC14B2A6566C700F717D4 /* SwiftUICharts */,
 			);
 			productName = Iolas_Novum;
 			productReference = C41F06DB2A5C196200EB907D /* Iolas_Novum.app */;
@@ -320,6 +323,7 @@
 			mainGroup = C41F06D22A5C196200EB907D;
 			packageReferences = (
 				C46CC1392A61A56D00F717D4 /* XCRemoteSwiftPackageReference "PopupView" */,
+				C46CC14A2A6566C700F717D4 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 			);
 			productRefGroup = C41F06DC2A5C196200EB907D /* Products */;
 			projectDirPath = "";
@@ -601,6 +605,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		C46CC14A2A6566C700F717D4 /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/willdale/SwiftUICharts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -608,6 +620,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C46CC1392A61A56D00F717D4 /* XCRemoteSwiftPackageReference "PopupView" */;
 			productName = PopupView;
+		};
+		C46CC14B2A6566C700F717D4 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C46CC14A2A6566C700F717D4 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 

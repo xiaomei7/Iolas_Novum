@@ -10,9 +10,6 @@ import CoreData
 
 class ActivityStatsViewModel: ObservableObject {
     
-//    @Published var accumulateTime: TimeInterval = 0
-//    @Published var oldAccumulateTime: TimeInterval = 0
-//    @Published var date: Date = Date().startOfDay
     @Published var activity: ActivityEntity? = nil
     
     func createOrUpdateActivityStats(context: NSManagedObjectContext, oldDurations: [Date: TimeInterval] = [:], newDurations: [Date: TimeInterval]) -> Bool {
@@ -23,9 +20,6 @@ class ActivityStatsViewModel: ObservableObject {
             let startDate = min(oldDurations.keys.min() ?? Date(), newDurations.keys.min() ?? Date())
             let endDate = max(oldDurations.keys.max() ?? Date(), newDurations.keys.max() ?? Date())
             
-            print("startDate", startDate)
-            print("endDate", endDate)
-            
             // Fetch all ActivityStats entities for the activity and date range
             let fetchRequest: NSFetchRequest<ActivityStats> = ActivityStats.fetchRequest()
             if let activity = activity {
@@ -35,15 +29,11 @@ class ActivityStatsViewModel: ObservableObject {
             }
             let results = try context.fetch(fetchRequest)
             
-            print("results", results)
-            
             // Update the accumulateTime for each ActivityStats entity
             for activityStats in results {
                 let oldDuration = oldDurations[activityStats.date!] ?? 0
                 let newDuration = newDurations[activityStats.date!] ?? 0
                 
-                print("oldDuration", oldDuration)
-                print("newDuration", newDuration)
                 activityStats.accumulateTime += newDuration - oldDuration
             }
             
@@ -55,10 +45,20 @@ class ActivityStatsViewModel: ObservableObject {
                     activityStats.activity = activity
                     activityStats.date = date
                     activityStats.accumulateTime = duration
+                    
+                    // Fetch or create the DailyStats entity for the date
+                    let dailyStatsFetchRequest: NSFetchRequest<DailyStats> = DailyStats.fetchRequest()
+                    dailyStatsFetchRequest.predicate = NSPredicate(format: "date == %@", date.startOfDay as NSDate)
+                    let dailyStats = try context.fetch(dailyStatsFetchRequest).first ?? DailyStats(context: context)
+                    dailyStats.id = UUID()
+                    dailyStats.date = date.startOfDay
+                    
+                    // Add the new ActivityStats entity to the DailyStats entity
+                    dailyStats.addToActivitiesStats(activityStats)
                 }
             }
         } catch {
-            print("Failed to fetch ActivityStats: \(error)")
+            print("⛔️ Failed to fetch ActivityStats: \(error)")
             return false
         }
         
