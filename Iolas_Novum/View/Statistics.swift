@@ -56,7 +56,7 @@ struct Statistics: View {
                     .padding(.horizontal)
                 
             }
-            .padding()
+            .padding(.horizontal, 32)
         }
         .onAppear {
             updateData()
@@ -85,7 +85,7 @@ extension Statistics {
         let dataSet = PieDataSet(dataPoints: dataPoints, legendTitle: "Activities")
         
         chartData = DoughnutChartData(dataSets: dataSet,
-                                      metadata: ChartMetadata(title: "Daily Stats", subtitle: "For Activities"),
+                                      metadata: ChartMetadata(title: "Stats", subtitle: "For Activities"),
                                       chartStyle: DoughnutChartStyle(infoBoxPlacement: .header),
                                       noDataText: Text("No Data"))
     }
