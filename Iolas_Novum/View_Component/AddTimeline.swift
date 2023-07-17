@@ -18,10 +18,11 @@ struct AddTimeline: View {
     @Environment(\.self) var env
     @EnvironmentObject var timelineModel: TimelineEntryViewModel
     @EnvironmentObject var userModel: UserViewModel
+    @StateObject var activityStatModel: ActivityStatsViewModel = .init()
     
-    //    let lastTimeline: TimelineEntry?
     @State private var errorMessage: String = ""
     @State private var oldTimelinePoints: Double = 0.0
+    @State private var oldDuration: [Date: TimeInterval] = [Date().startOfDay: 0]
     
     var body: some View {
         VStack(alignment: .center, spacing: 25) {
@@ -49,8 +50,11 @@ struct AddTimeline: View {
                 Spacer()
                 
                 Button {
-                    if timelineModel.deleteTimelineEntry(context: env.managedObjectContext){
-                        env.dismiss()
+                    if timelineModel.deleteTimelineEntry(context: env.managedObjectContext) {
+                        activityStatModel.activity = timelineModel.activity
+                        if activityStatModel.createOrUpdateActivityStats(context: env.managedObjectContext, oldDurations: oldDuration, newDurations: [:]) {
+                            env.dismiss()
+                        }
                     }
                 } label: {
                     Image(systemName: "trash")
@@ -132,13 +136,19 @@ struct AddTimeline: View {
             }
             
             Button {
-                if timelineModel.end.timeIntervalSince(timelineModel.start) < 60 {
-                    errorMessage = "Time interval must be bigger than 1 minute."
+                if timelineModel.end.timeIntervalSince(timelineModel.start) < 60 || timelineModel.end.timeIntervalSince(timelineModel.start) > 64800 {
+                    errorMessage = "Time interval must be bigger than 1 minute or less than 18 hours."
                 } else if timelineModel.editTimeline != nil {
                     if timelineModel.updateTimelineEntry(context: env.managedObjectContext) {
                         userModel.points += timelineModel.points
                         userModel.points -= oldTimelinePoints
-                        if userModel.updatePoints(context: env.managedObjectContext) {
+                        
+                        let newDuration = Date.calculateDurations(date1: timelineModel.start, date2: timelineModel.end)
+                        activityStatModel.activity = timelineModel.activity
+                        
+                        if userModel.updatePoints(context: env.managedObjectContext)
+                            && activityStatModel.createOrUpdateActivityStats(context: env.managedObjectContext, oldDurations: oldDuration, newDurations: newDuration)
+                        {
                             env.dismiss()
                         }
                     } else {
@@ -146,7 +156,12 @@ struct AddTimeline: View {
                     }
                 } else if timelineModel.createTimelineEntry(context: env.managedObjectContext) {
                     userModel.points += timelineModel.points
-                    if userModel.updatePoints(context: env.managedObjectContext) {
+                    let durations = Date.calculateDurations(date1: timelineModel.start, date2: timelineModel.end)
+                    activityStatModel.activity = timelineModel.activity
+                    
+                    if userModel.updatePoints(context: env.managedObjectContext)
+                        && activityStatModel.createOrUpdateActivityStats(context: env.managedObjectContext, newDurations: durations)
+                    {
                         env.dismiss()
                     }
                 } else {
@@ -167,6 +182,7 @@ struct AddTimeline: View {
             timelineModel.getMostRecentTimeline(context: env.managedObjectContext)
             if timelineModel.editTimeline != nil {
                 oldTimelinePoints = timelineModel.editTimeline?.points ?? 0.0
+                oldDuration = Date.calculateDurations(date1: timelineModel.start, date2: timelineModel.end)
             }
         }
     }

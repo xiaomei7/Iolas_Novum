@@ -20,7 +20,6 @@ struct Iolas_NovumApp: App {
             let users = try context.fetch(fetchRequest)
             
             if let user = users.first {
-                // A User entity already exists, so display the user's data in your views.
                 print("User's name: \(user.name ?? "Fail to fetch the user")")
             } else {
                 // No User entity exists, so create a new User entity and save it to the Core Data store.
@@ -30,6 +29,11 @@ struct Iolas_NovumApp: App {
                 newUser.income = 3000.0
                 newUser.points = 0.0
                 newUser.motto = "Life is short."
+                
+                // Create the special "unallocated" activity.
+//                let unallocatedActivity = ActivityEntity(context: context)
+//                unallocatedActivity.id = UUID()
+//                unallocatedActivity.name = "Unallocated"
                 
                 try context.save()
             }

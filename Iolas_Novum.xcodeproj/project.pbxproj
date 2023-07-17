@@ -23,7 +23,6 @@
 		C41F070A2A5C4E0A00EB907D /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07092A5C4E0A00EB907D /* TagViewModel.swift */; };
 		C41F070C2A5C579E00EB907D /* TagManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F070B2A5C579E00EB907D /* TagManagement.swift */; };
 		C41F07162A5C62B500EB907D /* WrappingHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07152A5C62B500EB907D /* WrappingHStack.swift */; };
-		C41F071A2A5C748700EB907D /* DateTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07192A5C748700EB907D /* DateTimeViewModel.swift */; };
 		C41F07252A5C804D00EB907D /* THICCCBOI-ThicccAF.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41F071C2A5C804D00EB907D /* THICCCBOI-ThicccAF.ttf */; };
 		C41F07262A5C804D00EB907D /* THICCCBOI-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41F071D2A5C804D00EB907D /* THICCCBOI-Black.ttf */; };
 		C41F07272A5C804D00EB907D /* THICCCBOI-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C41F071E2A5C804D00EB907D /* THICCCBOI-SemiBold.ttf */; };
@@ -49,6 +48,11 @@
 		C46CC1362A61631600F717D4 /* ShopItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1352A61631600F717D4 /* ShopItemViewModel.swift */; };
 		C46CC1382A61668A00F717D4 /* AddShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1372A61668A00F717D4 /* AddShopItem.swift */; };
 		C46CC13B2A61A56D00F717D4 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = C46CC13A2A61A56D00F717D4 /* PopupView */; };
+		C46CC1412A63307100F717D4 /* DailyActivityStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1402A63307100F717D4 /* DailyActivityStatsViewModel.swift */; };
+		C46CC1432A6330CB00F717D4 /* ActivityStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1422A6330CB00F717D4 /* ActivityStatsViewModel.swift */; };
+		C46CC1452A64041200F717D4 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1442A64041200F717D4 /* TimeInterval.swift */; };
+		C46CC1472A6425D800F717D4 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1462A6425D800F717D4 /* Statistics.swift */; };
+		C46CC14C2A6566C700F717D4 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = C46CC14B2A6566C700F717D4 /* SwiftUICharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +73,6 @@
 		C41F07092A5C4E0A00EB907D /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
 		C41F070B2A5C579E00EB907D /* TagManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManagement.swift; sourceTree = "<group>"; };
 		C41F07152A5C62B500EB907D /* WrappingHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHStack.swift; sourceTree = "<group>"; };
-		C41F07192A5C748700EB907D /* DateTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeViewModel.swift; sourceTree = "<group>"; };
 		C41F071C2A5C804D00EB907D /* THICCCBOI-ThicccAF.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THICCCBOI-ThicccAF.ttf"; sourceTree = "<group>"; };
 		C41F071D2A5C804D00EB907D /* THICCCBOI-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THICCCBOI-Black.ttf"; sourceTree = "<group>"; };
 		C41F071E2A5C804D00EB907D /* THICCCBOI-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "THICCCBOI-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -95,6 +98,10 @@
 		C46CC1332A615FE600F717D4 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		C46CC1352A61631600F717D4 /* ShopItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemViewModel.swift; sourceTree = "<group>"; };
 		C46CC1372A61668A00F717D4 /* AddShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShopItem.swift; sourceTree = "<group>"; };
+		C46CC1402A63307100F717D4 /* DailyActivityStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityStatsViewModel.swift; sourceTree = "<group>"; };
+		C46CC1422A6330CB00F717D4 /* ActivityStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsViewModel.swift; sourceTree = "<group>"; };
+		C46CC1442A64041200F717D4 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		C46CC1462A6425D800F717D4 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +110,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C46CC13B2A61A56D00F717D4 /* PopupView in Frameworks */,
+				C46CC14C2A6566C700F717D4 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +171,7 @@
 				C41F07422A5EE9F900EB907D /* UserPreference.swift */,
 				C41F07462A5FF8FB00EB907D /* Stopwatch.swift */,
 				C46CC1332A615FE600F717D4 /* Shop.swift */,
+				C46CC1462A6425D800F717D4 /* Statistics.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,12 +179,12 @@
 		C41F06F82A5C285800EB907D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C46CC13D2A63305100F717D4 /* Statistics */,
+				C46CC13C2A63302500F717D4 /* Time */,
 				C41F06F92A5C286700EB907D /* ActivityViewModel.swift */,
 				C41F07092A5C4E0A00EB907D /* TagViewModel.swift */,
 				C41F073C2A5D63AA00EB907D /* TimelineViewModel.swift */,
-				C41F07192A5C748700EB907D /* DateTimeViewModel.swift */,
 				C41F07402A5DE82700EB907D /* UserViewModel.swift */,
-				C41F07482A5FF9D700EB907D /* StopwatchViewModel.swift */,
 				C46CC1352A61631600F717D4 /* ShopItemViewModel.swift */,
 			);
 			path = ViewModel;
@@ -210,6 +219,7 @@
 				C41F07022A5C2EE200EB907D /* Date.swift */,
 				C41F07332A5D55A000EB907D /* View.swift */,
 				C41F073E2A5DB91E00EB907D /* Double.swift */,
+				C46CC1442A64041200F717D4 /* TimeInterval.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -246,6 +256,23 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		C46CC13C2A63302500F717D4 /* Time */ = {
+			isa = PBXGroup;
+			children = (
+				C41F07482A5FF9D700EB907D /* StopwatchViewModel.swift */,
+			);
+			path = Time;
+			sourceTree = "<group>";
+		};
+		C46CC13D2A63305100F717D4 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				C46CC1402A63307100F717D4 /* DailyActivityStatsViewModel.swift */,
+				C46CC1422A6330CB00F717D4 /* ActivityStatsViewModel.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,6 +291,7 @@
 			name = Iolas_Novum;
 			packageProductDependencies = (
 				C46CC13A2A61A56D00F717D4 /* PopupView */,
+				C46CC14B2A6566C700F717D4 /* SwiftUICharts */,
 			);
 			productName = Iolas_Novum;
 			productReference = C41F06DB2A5C196200EB907D /* Iolas_Novum.app */;
@@ -295,6 +323,7 @@
 			mainGroup = C41F06D22A5C196200EB907D;
 			packageReferences = (
 				C46CC1392A61A56D00F717D4 /* XCRemoteSwiftPackageReference "PopupView" */,
+				C46CC14A2A6566C700F717D4 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 			);
 			productRefGroup = C41F06DC2A5C196200EB907D /* Products */;
 			projectDirPath = "";
@@ -332,15 +361,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41F06EB2A5C196300EB907D /* NovumContainer.xcdatamodeld in Sources */,
+				C46CC1452A64041200F717D4 /* TimeInterval.swift in Sources */,
 				C41F07472A5FF8FB00EB907D /* Stopwatch.swift in Sources */,
 				C41F07412A5DE82700EB907D /* UserViewModel.swift in Sources */,
 				C41F07452A5F091800EB907D /* EditUserInfo.swift in Sources */,
 				C41F07032A5C2EE200EB907D /* Date.swift in Sources */,
+				C46CC1412A63307100F717D4 /* DailyActivityStatsViewModel.swift in Sources */,
 				C41F07052A5C38B200EB907D /* AddActivity.swift in Sources */,
+				C46CC1432A6330CB00F717D4 /* ActivityStatsViewModel.swift in Sources */,
 				C41F06F72A5C268900EB907D /* Today.swift in Sources */,
 				C41F06FA2A5C286700EB907D /* ActivityViewModel.swift in Sources */,
 				C41F070C2A5C579E00EB907D /* TagManagement.swift in Sources */,
 				C41F070A2A5C4E0A00EB907D /* TagViewModel.swift in Sources */,
+				C46CC1472A6425D800F717D4 /* Statistics.swift in Sources */,
 				C46CC1382A61668A00F717D4 /* AddShopItem.swift in Sources */,
 				C41F07162A5C62B500EB907D /* WrappingHStack.swift in Sources */,
 				C41F06FD2A5C2AB700EB907D /* Influence.swift in Sources */,
@@ -349,7 +382,6 @@
 				C41F073F2A5DB91E00EB907D /* Double.swift in Sources */,
 				C41F07432A5EE9F900EB907D /* UserPreference.swift in Sources */,
 				C41F07302A5C80E900EB907D /* Thicccboi.swift in Sources */,
-				C41F071A2A5C748700EB907D /* DateTimeViewModel.swift in Sources */,
 				C41F073B2A5D5CFC00EB907D /* AddTimeline.swift in Sources */,
 				C41F06F52A5C220200EB907D /* Home.swift in Sources */,
 				C41F07492A5FF9D700EB907D /* StopwatchViewModel.swift in Sources */,
@@ -573,6 +605,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		C46CC14A2A6566C700F717D4 /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/willdale/SwiftUICharts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -580,6 +620,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C46CC1392A61A56D00F717D4 /* XCRemoteSwiftPackageReference "PopupView" */;
 			productName = PopupView;
+		};
+		C46CC14B2A6566C700F717D4 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C46CC14A2A6566C700F717D4 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -312,11 +312,11 @@ extension Timeline {
                             .foregroundColor(Color("Black"))
                         
                         HStack {
-                            Label(timeline.start?.formatToString("HH:ss") ?? "N/A", systemImage: "clock")
+                            Label(timeline.start?.formatToString("HH:mm") ?? "N/A", systemImage: "clock")
                                 .thicccboi(12, .regular)
                                 .foregroundColor(Color.black)
                             
-                            Label(timeline.end?.formatToString("HH:ss") ?? "N/A", systemImage: "arrow.forward")
+                            Label(timeline.end?.formatToString("HH:mm") ?? "N/A", systemImage: "arrow.forward")
                                 .thicccboi(12, .regular)
                                 .foregroundColor(Color.black)
                         }

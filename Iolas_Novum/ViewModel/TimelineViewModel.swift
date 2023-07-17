@@ -80,8 +80,11 @@ final class TimelineEntryViewModel: ObservableObject {
             timelineEntry.describe = description
             timelineEntry.points = points
             
-            if let _ = try? context.save(){
+            do {
+                try context.save()
                 return true
+            } catch {
+                print("Failed to save context: \(error)")
             }
         }
         

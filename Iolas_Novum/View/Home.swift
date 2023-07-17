@@ -47,7 +47,7 @@ struct Home: View {
                 .toolbarBackground(Color("Cream"), for: .tabBar)
                 .tag("Timer")
             
-            Text("Statistic View")
+            Statistics()
                 .tabItem {
                     Image(systemName: "numbersign")
                     Text("Statistic")
