@@ -16,7 +16,7 @@ enum StatsRange: String, CaseIterable {
 
 struct Statistics: View {
     
-    @StateObject var dailyStatModel: DailyActivityStatsViewModel = .init()
+    @StateObject var dailyStatModel: DailyStatsViewModel = .init()
     @Environment(\.self) var env
     
     @State private var statsData: [(String, TimeInterval, String)] = []

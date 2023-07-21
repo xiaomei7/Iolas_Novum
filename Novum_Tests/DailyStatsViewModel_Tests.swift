@@ -1,5 +1,5 @@
 //
-//  DailyActivityStatsViewModel_Tests.swift
+//  DailyStatsViewModel_Tests.swift
 //  Novum_Tests
 //
 //  Created by Iolas on 21/07/2023.
@@ -9,15 +9,15 @@ import XCTest
 import CoreData
 @testable import Iolas_Novum
 
-final class DailyActivityStatsViewModel_Tests: XCTestCase {
+final class DailyStatsViewModel_Tests: XCTestCase {
     
-    var viewModel: DailyActivityStatsViewModel!
+    var viewModel: DailyStatsViewModel!
     var context: NSManagedObjectContext!
     
     override func setUp() {
         super.setUp()
         context = TestCoreDataStack().persistentContainer.newBackgroundContext()
-        viewModel = DailyActivityStatsViewModel()
+        viewModel = DailyStatsViewModel()
     }
     
     override func tearDown() {

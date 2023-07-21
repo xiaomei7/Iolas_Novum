@@ -51,12 +51,12 @@
 		C4485B692A6AB84B00CE04E3 /* ShopItemViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B682A6AB84B00CE04E3 /* ShopItemViewModel_Tests.swift */; };
 		C4485B6B2A6AB92100CE04E3 /* ActivityViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B6A2A6AB92100CE04E3 /* ActivityViewModel_Tests.swift */; };
 		C4485B6D2A6AD75B00CE04E3 /* ActivityStatsViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B6C2A6AD75B00CE04E3 /* ActivityStatsViewModel_Tests.swift */; };
-		C4485B6F2A6AD9AA00CE04E3 /* DailyActivityStatsViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B6E2A6AD9AA00CE04E3 /* DailyActivityStatsViewModel_Tests.swift */; };
+		C4485B6F2A6AD9AA00CE04E3 /* DailyStatsViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B6E2A6AD9AA00CE04E3 /* DailyStatsViewModel_Tests.swift */; };
 		C46CC1342A615FE600F717D4 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1332A615FE600F717D4 /* Shop.swift */; };
 		C46CC1362A61631600F717D4 /* ShopItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1352A61631600F717D4 /* ShopItemViewModel.swift */; };
 		C46CC1382A61668A00F717D4 /* AddShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1372A61668A00F717D4 /* AddShopItem.swift */; };
 		C46CC13B2A61A56D00F717D4 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = C46CC13A2A61A56D00F717D4 /* PopupView */; };
-		C46CC1412A63307100F717D4 /* DailyActivityStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1402A63307100F717D4 /* DailyActivityStatsViewModel.swift */; };
+		C46CC1412A63307100F717D4 /* DailyStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1402A63307100F717D4 /* DailyStatsViewModel.swift */; };
 		C46CC1432A6330CB00F717D4 /* ActivityStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1422A6330CB00F717D4 /* ActivityStatsViewModel.swift */; };
 		C46CC1452A64041200F717D4 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1442A64041200F717D4 /* TimeInterval.swift */; };
 		C46CC1472A6425D800F717D4 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1462A6425D800F717D4 /* Statistics.swift */; };
@@ -121,11 +121,11 @@
 		C4485B682A6AB84B00CE04E3 /* ShopItemViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemViewModel_Tests.swift; sourceTree = "<group>"; };
 		C4485B6A2A6AB92100CE04E3 /* ActivityViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel_Tests.swift; sourceTree = "<group>"; };
 		C4485B6C2A6AD75B00CE04E3 /* ActivityStatsViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsViewModel_Tests.swift; sourceTree = "<group>"; };
-		C4485B6E2A6AD9AA00CE04E3 /* DailyActivityStatsViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityStatsViewModel_Tests.swift; sourceTree = "<group>"; };
+		C4485B6E2A6AD9AA00CE04E3 /* DailyStatsViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatsViewModel_Tests.swift; sourceTree = "<group>"; };
 		C46CC1332A615FE600F717D4 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		C46CC1352A61631600F717D4 /* ShopItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemViewModel.swift; sourceTree = "<group>"; };
 		C46CC1372A61668A00F717D4 /* AddShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShopItem.swift; sourceTree = "<group>"; };
-		C46CC1402A63307100F717D4 /* DailyActivityStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityStatsViewModel.swift; sourceTree = "<group>"; };
+		C46CC1402A63307100F717D4 /* DailyStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatsViewModel.swift; sourceTree = "<group>"; };
 		C46CC1422A6330CB00F717D4 /* ActivityStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsViewModel.swift; sourceTree = "<group>"; };
 		C46CC1442A64041200F717D4 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		C46CC1462A6425D800F717D4 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 				C4485B682A6AB84B00CE04E3 /* ShopItemViewModel_Tests.swift */,
 				C4485B6A2A6AB92100CE04E3 /* ActivityViewModel_Tests.swift */,
 				C4485B6C2A6AD75B00CE04E3 /* ActivityStatsViewModel_Tests.swift */,
-				C4485B6E2A6AD9AA00CE04E3 /* DailyActivityStatsViewModel_Tests.swift */,
+				C4485B6E2A6AD9AA00CE04E3 /* DailyStatsViewModel_Tests.swift */,
 			);
 			path = Novum_Tests;
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 		C46CC13D2A63305100F717D4 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
-				C46CC1402A63307100F717D4 /* DailyActivityStatsViewModel.swift */,
+				C46CC1402A63307100F717D4 /* DailyStatsViewModel.swift */,
 				C46CC1422A6330CB00F717D4 /* ActivityStatsViewModel.swift */,
 			);
 			path = Statistics;
@@ -447,7 +447,7 @@
 				C41F07412A5DE82700EB907D /* UserViewModel.swift in Sources */,
 				C41F07452A5F091800EB907D /* EditUserInfo.swift in Sources */,
 				C41F07032A5C2EE200EB907D /* Date.swift in Sources */,
-				C46CC1412A63307100F717D4 /* DailyActivityStatsViewModel.swift in Sources */,
+				C46CC1412A63307100F717D4 /* DailyStatsViewModel.swift in Sources */,
 				C41F07052A5C38B200EB907D /* AddActivity.swift in Sources */,
 				C46CC1432A6330CB00F717D4 /* ActivityStatsViewModel.swift in Sources */,
 				C41F06F72A5C268900EB907D /* Today.swift in Sources */,
@@ -488,7 +488,7 @@
 				C4485B652A6AB54F00CE04E3 /* TagViewModel_Tests.swift in Sources */,
 				C4485B672A6AB73600CE04E3 /* TestCoreDataStack.swift in Sources */,
 				C4485B6B2A6AB92100CE04E3 /* ActivityViewModel_Tests.swift in Sources */,
-				C4485B6F2A6AD9AA00CE04E3 /* DailyActivityStatsViewModel_Tests.swift in Sources */,
+				C4485B6F2A6AD9AA00CE04E3 /* DailyStatsViewModel_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
