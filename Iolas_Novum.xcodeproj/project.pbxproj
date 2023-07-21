@@ -44,6 +44,11 @@
 		C41F07452A5F091800EB907D /* EditUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07442A5F091800EB907D /* EditUserInfo.swift */; };
 		C41F07472A5FF8FB00EB907D /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07462A5FF8FB00EB907D /* Stopwatch.swift */; };
 		C41F07492A5FF9D700EB907D /* StopwatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F07482A5FF9D700EB907D /* StopwatchViewModel.swift */; };
+		C4485B5C2A6A8A1900CE04E3 /* Novum_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B5B2A6A8A1900CE04E3 /* Novum_Tests.swift */; };
+		C4485B632A6A8CBF00CE04E3 /* UserViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B622A6A8CBF00CE04E3 /* UserViewModel_Tests.swift */; };
+		C4485B652A6AB54F00CE04E3 /* TagViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B642A6AB54F00CE04E3 /* TagViewModel_Tests.swift */; };
+		C4485B672A6AB73600CE04E3 /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B662A6AB73600CE04E3 /* TestCoreDataStack.swift */; };
+		C4485B692A6AB84B00CE04E3 /* ShopItemViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B682A6AB84B00CE04E3 /* ShopItemViewModel_Tests.swift */; };
 		C46CC1342A615FE600F717D4 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1332A615FE600F717D4 /* Shop.swift */; };
 		C46CC1362A61631600F717D4 /* ShopItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1352A61631600F717D4 /* ShopItemViewModel.swift */; };
 		C46CC1382A61668A00F717D4 /* AddShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1372A61668A00F717D4 /* AddShopItem.swift */; };
@@ -54,6 +59,16 @@
 		C46CC1472A6425D800F717D4 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1462A6425D800F717D4 /* Statistics.swift */; };
 		C46CC14C2A6566C700F717D4 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = C46CC14B2A6566C700F717D4 /* SwiftUICharts */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C4485B5D2A6A8A1900CE04E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C41F06D32A5C196200EB907D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C41F06DA2A5C196200EB907D;
+			remoteInfo = Iolas_Novum;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C41F06DB2A5C196200EB907D /* Iolas_Novum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Iolas_Novum.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +110,12 @@
 		C41F07442A5F091800EB907D /* EditUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfo.swift; sourceTree = "<group>"; };
 		C41F07462A5FF8FB00EB907D /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		C41F07482A5FF9D700EB907D /* StopwatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewModel.swift; sourceTree = "<group>"; };
+		C4485B592A6A8A1900CE04E3 /* Novum_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Novum_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4485B5B2A6A8A1900CE04E3 /* Novum_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Novum_Tests.swift; sourceTree = "<group>"; };
+		C4485B622A6A8CBF00CE04E3 /* UserViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel_Tests.swift; sourceTree = "<group>"; };
+		C4485B642A6AB54F00CE04E3 /* TagViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel_Tests.swift; sourceTree = "<group>"; };
+		C4485B662A6AB73600CE04E3 /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
+		C4485B682A6AB84B00CE04E3 /* ShopItemViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemViewModel_Tests.swift; sourceTree = "<group>"; };
 		C46CC1332A615FE600F717D4 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		C46CC1352A61631600F717D4 /* ShopItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemViewModel.swift; sourceTree = "<group>"; };
 		C46CC1372A61668A00F717D4 /* AddShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShopItem.swift; sourceTree = "<group>"; };
@@ -114,6 +135,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4485B562A6A8A1900CE04E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -121,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				C41F06DD2A5C196200EB907D /* Iolas_Novum */,
+				C4485B5A2A6A8A1900CE04E3 /* Novum_Tests */,
 				C41F06DC2A5C196200EB907D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				C41F06DB2A5C196200EB907D /* Iolas_Novum.app */,
+				C4485B592A6A8A1900CE04E3 /* Novum_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -256,6 +286,18 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		C4485B5A2A6A8A1900CE04E3 /* Novum_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C4485B5B2A6A8A1900CE04E3 /* Novum_Tests.swift */,
+				C4485B622A6A8CBF00CE04E3 /* UserViewModel_Tests.swift */,
+				C4485B642A6AB54F00CE04E3 /* TagViewModel_Tests.swift */,
+				C4485B662A6AB73600CE04E3 /* TestCoreDataStack.swift */,
+				C4485B682A6AB84B00CE04E3 /* ShopItemViewModel_Tests.swift */,
+			);
+			path = Novum_Tests;
+			sourceTree = "<group>";
+		};
 		C46CC13C2A63302500F717D4 /* Time */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +339,24 @@
 			productReference = C41F06DB2A5C196200EB907D /* Iolas_Novum.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C4485B582A6A8A1900CE04E3 /* Novum_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4485B612A6A8A1900CE04E3 /* Build configuration list for PBXNativeTarget "Novum_Tests" */;
+			buildPhases = (
+				C4485B552A6A8A1900CE04E3 /* Sources */,
+				C4485B562A6A8A1900CE04E3 /* Frameworks */,
+				C4485B572A6A8A1900CE04E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4485B5E2A6A8A1900CE04E3 /* PBXTargetDependency */,
+			);
+			name = Novum_Tests;
+			productName = Novum_Tests;
+			productReference = C4485B592A6A8A1900CE04E3 /* Novum_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -309,6 +369,10 @@
 				TargetAttributes = {
 					C41F06DA2A5C196200EB907D = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					C4485B582A6A8A1900CE04E3 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = C41F06DA2A5C196200EB907D;
 					};
 				};
 			};
@@ -330,6 +394,7 @@
 			projectRoot = "";
 			targets = (
 				C41F06DA2A5C196200EB907D /* Iolas_Novum */,
+				C4485B582A6A8A1900CE04E3 /* Novum_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -350,6 +415,13 @@
 				C41F07252A5C804D00EB907D /* THICCCBOI-ThicccAF.ttf in Resources */,
 				C41F072B2A5C804D00EB907D /* THICCCBOI-Medium.ttf in Resources */,
 				C41F07272A5C804D00EB907D /* THICCCBOI-SemiBold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4485B572A6A8A1900CE04E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +468,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4485B552A6A8A1900CE04E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4485B692A6AB84B00CE04E3 /* ShopItemViewModel_Tests.swift in Sources */,
+				C4485B5C2A6A8A1900CE04E3 /* Novum_Tests.swift in Sources */,
+				C4485B632A6A8CBF00CE04E3 /* UserViewModel_Tests.swift in Sources */,
+				C4485B652A6AB54F00CE04E3 /* TagViewModel_Tests.swift in Sources */,
+				C4485B672A6AB73600CE04E3 /* TestCoreDataStack.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C4485B5E2A6A8A1900CE04E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C41F06DA2A5C196200EB907D /* Iolas_Novum */;
+			targetProxy = C4485B5D2A6A8A1900CE04E3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C41F06EC2A5C196300EB907D /* Debug */ = {
@@ -573,6 +665,42 @@
 			};
 			name = Release;
 		};
+		C4485B5F2A6A8A1900CE04E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8YPDX2HP4P;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iolas.Novum-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Iolas_Novum.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Iolas_Novum";
+			};
+			name = Debug;
+		};
+		C4485B602A6A8A1900CE04E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8YPDX2HP4P;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iolas.Novum-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Iolas_Novum.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Iolas_Novum";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -590,6 +718,15 @@
 			buildConfigurations = (
 				C41F06EF2A5C196300EB907D /* Debug */,
 				C41F06F02A5C196300EB907D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4485B612A6A8A1900CE04E3 /* Build configuration list for PBXNativeTarget "Novum_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4485B5F2A6A8A1900CE04E3 /* Debug */,
+				C4485B602A6A8A1900CE04E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
