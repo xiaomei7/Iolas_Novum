@@ -9,7 +9,7 @@ import XCTest
 import CoreData
 @testable import Iolas_Novum
 
-class ActivityStatsViewModel_Tests: XCTestCase {
+final class ActivityStatsViewModel_Tests: XCTestCase {
     
     var viewModel: ActivityStatsViewModel!
     var context: NSManagedObjectContext!

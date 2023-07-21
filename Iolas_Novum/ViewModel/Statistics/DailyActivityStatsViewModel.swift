@@ -50,7 +50,7 @@ final class DailyActivityStatsViewModel: ObservableObject {
                 for activityStat in activitiesStats {
                     let activityName = activityStat.activity?.name ?? "Unallocated"
                     let accumulateTime = activityStat.accumulateTime
-                    let activityColor = activityStat.activity?.color ?? "Gray" // replace with default color if needed
+                    let activityColor = activityStat.activity?.color ?? "Gray"
                     
                     if let (currentAccumulateTime, _) = weeklyStatsData[activityName] {
                         weeklyStatsData[activityName] = (currentAccumulateTime + accumulateTime, activityColor)
@@ -85,7 +85,7 @@ final class DailyActivityStatsViewModel: ObservableObject {
                 
                 for activityStat in activitiesStats {
                     let activityName = activityStat.activity?.name ?? "Unallocated"
-                    let activityColor = activityStat.activity?.color ?? "Gray" // replace with default color if needed
+                    let activityColor = activityStat.activity?.color ?? "Gray"
                     let accumulateTime = activityStat.accumulateTime
                     
                     if let existingStat = aggregatedStats[activityName] {
