@@ -62,23 +62,10 @@ class ActivityStatsViewModel: ObservableObject {
             return false
         }
         
-        print("Inserted objects:")
-        for object in context.insertedObjects {
-            print(object)
-        }
-        print("Updated objects:")
-        for object in context.updatedObjects {
-            print(object)
-        }
-        print("Deleted objects:")
-        for object in context.deletedObjects {
-            print(object)
-        }
-        
         if let _ = try? context.save() {
             return true
         }
-        return true
+        
+        return false
     }
-    
 }
