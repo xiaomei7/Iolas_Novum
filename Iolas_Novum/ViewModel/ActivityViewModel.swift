@@ -37,9 +37,10 @@ final class ActivityViewModel: ObservableObject {
         activity.created = Date()
         activity.tags = NSSet(set: selectedTags)
 
-        if let _ = try? context.save(){
+        if let _ = try? context.save() {
             return true
         }
+        
         return false
     }
     
@@ -52,12 +53,11 @@ final class ActivityViewModel: ObservableObject {
             activity.isArchived = isArchived
             activity.factor = factor
             activity.tags = NSSet(set: selectedTags)
-            
+                        
             if let _ = try? context.save(){
                 return true
             }
         }
-        
         
         return false
     }
@@ -70,6 +70,7 @@ final class ActivityViewModel: ObservableObject {
                 return true
             }
         }
+        
         return false
     }
     
