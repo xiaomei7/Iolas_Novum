@@ -1,5 +1,5 @@
 //
-//  DailyActivityStatsViewModel.swift
+//  DailyStatsViewModel.swift
 //  Iolas_Novum
 //
 //  Created by Iolas on 15/07/2023.
@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-final class DailyActivityStatsViewModel: ObservableObject {
+final class DailyStatsViewModel: ObservableObject {
     
     func fetchDailyStatsData(for date: Date, context: NSManagedObjectContext) -> [(String, TimeInterval, String)] {
         let fetchRequest: NSFetchRequest<DailyStats> = DailyStats.fetchRequest()
@@ -50,7 +50,7 @@ final class DailyActivityStatsViewModel: ObservableObject {
                 for activityStat in activitiesStats {
                     let activityName = activityStat.activity?.name ?? "Unallocated"
                     let accumulateTime = activityStat.accumulateTime
-                    let activityColor = activityStat.activity?.color ?? "Gray" // replace with default color if needed
+                    let activityColor = activityStat.activity?.color ?? "Gray"
                     
                     if let (currentAccumulateTime, _) = weeklyStatsData[activityName] {
                         weeklyStatsData[activityName] = (currentAccumulateTime + accumulateTime, activityColor)
@@ -85,7 +85,7 @@ final class DailyActivityStatsViewModel: ObservableObject {
                 
                 for activityStat in activitiesStats {
                     let activityName = activityStat.activity?.name ?? "Unallocated"
-                    let activityColor = activityStat.activity?.color ?? "Gray" // replace with default color if needed
+                    let activityColor = activityStat.activity?.color ?? "Gray"
                     let accumulateTime = activityStat.accumulateTime
                     
                     if let existingStat = aggregatedStats[activityName] {
