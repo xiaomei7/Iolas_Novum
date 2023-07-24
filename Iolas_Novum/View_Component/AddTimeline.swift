@@ -27,9 +27,7 @@ struct AddTimeline: View {
     var body: some View {
         VStack(alignment: .center, spacing: 25) {
             HStack {
-                
                 Button {
-                    timelineModel.addorEditTimeline.toggle()
                     env.dismiss()
                 } label: {
                     Image(systemName: "xmark.circle.fill")

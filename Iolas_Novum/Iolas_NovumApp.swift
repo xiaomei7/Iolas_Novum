@@ -20,7 +20,7 @@ struct Iolas_NovumApp: App {
             let users = try context.fetch(fetchRequest)
             
             if let user = users.first {
-                print("User's name: \(user.name ?? "Fail to fetch the user")")
+                print("🖊️ User's name: \(user.name ?? "❗️ Fail to fetch the user")")
             } else {
                 // No User entity exists, so create a new User entity and save it to the Core Data store.
                 let newUser = UserEntity(context: context)

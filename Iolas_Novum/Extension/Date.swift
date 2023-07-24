@@ -8,7 +8,6 @@
 import Foundation
 
 extension Date {
-    
     struct WeekDay: Identifiable {
         var id: UUID = .init()
         var date: Date
@@ -16,6 +15,13 @@ extension Date {
     
     var startOfDay: Date {
         return Calendar.current.startOfDay(for: self)
+    }
+    
+    var endOfDay: Date {
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        return Calendar.current.date(byAdding: components, to: startOfDay)!
     }
     
     func formatToString(_ format: String) -> String{
@@ -57,7 +63,7 @@ extension Date {
             return []
         }
         
-        /// Iterating to get the Full Week
+        // Iterating to get the Full Week
         (0..<7).forEach { index in
             if let weekDay = calendar.date(byAdding: .day, value: index, to: starOfWeek) {
                 week.append(.init(date: weekDay))
@@ -85,6 +91,13 @@ extension Date {
         }
         
         return fetchWeek(previousDate)
+    }
+    
+    func isInWeekday(_ frequency: [String]) -> Bool {
+        let weekday = Calendar.current.component(.weekday, from: self)
+        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+        let dayOfWeek = days[weekday - 1]
+        return frequency.contains(dayOfWeek)
     }
     
     func startOfMonth() -> Date {
@@ -199,6 +212,5 @@ extension Date {
         
         return durations
     }
-    
     
 }

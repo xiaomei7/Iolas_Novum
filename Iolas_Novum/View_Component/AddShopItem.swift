@@ -15,7 +15,6 @@ struct AddShopItem: View {
         VStack(alignment: .center, spacing: 25) {
             HStack(alignment: .center) {
                 Button {
-                    shopModel.addorEditShopItem.toggle()
                     env.dismiss()
                 } label: {
                     Image(systemName: "xmark.circle.fill")
@@ -44,7 +43,7 @@ struct AddShopItem: View {
             }
             .hSpacing(.leading)
             
-            VStack(alignment: .leading, spacing: 8, content: {
+            VStack(alignment: .leading, spacing: 8) {
                 Text("Name of the Item")
                     .font(.caption)
                     .foregroundStyle(.gray)
@@ -53,10 +52,10 @@ struct AddShopItem: View {
                     .padding(.vertical, 12)
                     .padding(.horizontal, 15)
                     .background(Color("LightBrown").shadow(.drop(color: .black.opacity(0.25), radius: 2)), in: RoundedRectangle(cornerRadius: 10))
-            })
+            }
             .padding(.top, 5)
             
-            VStack(alignment: .leading, spacing: 8, content: {
+            VStack(alignment: .leading, spacing: 8) {
                 Text("Item Description")
                     .font(.caption)
                     .foregroundStyle(.gray)
@@ -65,7 +64,7 @@ struct AddShopItem: View {
                     .padding(.vertical, 12)
                     .padding(.horizontal, 15)
                     .background(Color("LightBrown").shadow(.drop(color: .black.opacity(0.25), radius: 2)), in: RoundedRectangle(cornerRadius: 10))
-            })
+            }
             .padding(.top, 5)
             
             VStack(alignment: .leading, spacing: 8, content: {

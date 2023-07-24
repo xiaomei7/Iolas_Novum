@@ -53,6 +53,8 @@
 		C4485B6D2A6AD75B00CE04E3 /* ActivityStatsViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B6C2A6AD75B00CE04E3 /* ActivityStatsViewModel_Tests.swift */; };
 		C4485B6F2A6AD9AA00CE04E3 /* DailyStatsViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B6E2A6AD9AA00CE04E3 /* DailyStatsViewModel_Tests.swift */; };
 		C4485B712A6AEE5C00CE04E3 /* TimelineEntryViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B702A6AEE5C00CE04E3 /* TimelineEntryViewModel_Tests.swift */; };
+		C4485B732A6C23D100CE04E3 /* AddTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B722A6C23D100CE04E3 /* AddTodo.swift */; };
+		C4485B752A6C240200CE04E3 /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B742A6C240200CE04E3 /* TodoViewModel.swift */; };
 		C46CC1342A615FE600F717D4 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1332A615FE600F717D4 /* Shop.swift */; };
 		C46CC1362A61631600F717D4 /* ShopItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1352A61631600F717D4 /* ShopItemViewModel.swift */; };
 		C46CC1382A61668A00F717D4 /* AddShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1372A61668A00F717D4 /* AddShopItem.swift */; };
@@ -124,6 +126,8 @@
 		C4485B6C2A6AD75B00CE04E3 /* ActivityStatsViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsViewModel_Tests.swift; sourceTree = "<group>"; };
 		C4485B6E2A6AD9AA00CE04E3 /* DailyStatsViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatsViewModel_Tests.swift; sourceTree = "<group>"; };
 		C4485B702A6AEE5C00CE04E3 /* TimelineEntryViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineEntryViewModel_Tests.swift; sourceTree = "<group>"; };
+		C4485B722A6C23D100CE04E3 /* AddTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodo.swift; sourceTree = "<group>"; };
+		C4485B742A6C240200CE04E3 /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 		C46CC1332A615FE600F717D4 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		C46CC1352A61631600F717D4 /* ShopItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemViewModel.swift; sourceTree = "<group>"; };
 		C46CC1372A61668A00F717D4 /* AddShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShopItem.swift; sourceTree = "<group>"; };
@@ -224,6 +228,7 @@
 				C41F073C2A5D63AA00EB907D /* TimelineViewModel.swift */,
 				C41F07402A5DE82700EB907D /* UserViewModel.swift */,
 				C46CC1352A61631600F717D4 /* ShopItemViewModel.swift */,
+				C4485B742A6C240200CE04E3 /* TodoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 				C41F073A2A5D5CFC00EB907D /* AddTimeline.swift */,
 				C41F07442A5F091800EB907D /* EditUserInfo.swift */,
 				C46CC1372A61668A00F717D4 /* AddShopItem.swift */,
+				C4485B722A6C23D100CE04E3 /* AddTodo.swift */,
 			);
 			path = View_Component;
 			sourceTree = "<group>";
@@ -445,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41F06EB2A5C196300EB907D /* NovumContainer.xcdatamodeld in Sources */,
+				C4485B732A6C23D100CE04E3 /* AddTodo.swift in Sources */,
 				C46CC1452A64041200F717D4 /* TimeInterval.swift in Sources */,
 				C41F07472A5FF8FB00EB907D /* Stopwatch.swift in Sources */,
 				C41F07412A5DE82700EB907D /* UserViewModel.swift in Sources */,
@@ -476,6 +483,7 @@
 				C41F07372A5D587000EB907D /* OffsetKey.swift in Sources */,
 				C41F07082A5C427D00EB907D /* TagStub.swift in Sources */,
 				C41F06DF2A5C196200EB907D /* Iolas_NovumApp.swift in Sources */,
+				C4485B752A6C240200CE04E3 /* TodoViewModel.swift in Sources */,
 				C46CC1362A61631600F717D4 /* ShopItemViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

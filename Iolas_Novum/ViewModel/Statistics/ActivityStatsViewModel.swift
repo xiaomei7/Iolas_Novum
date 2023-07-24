@@ -12,9 +12,7 @@ class ActivityStatsViewModel: ObservableObject {
     
     @Published var activity: ActivityEntity? = nil
     
-    func createOrUpdateActivityStats(context: NSManagedObjectContext, oldDurations: [Date: TimeInterval] = [:], newDurations: [Date: TimeInterval]) -> Bool {
-        print("inside createOrUpdateActivityStats.")
-        
+    func createOrUpdateActivityStats(context: NSManagedObjectContext, oldDurations: [Date: TimeInterval] = [:], newDurations: [Date: TimeInterval]) -> Bool {        
         do {
             // Get the date range spanned by the old and new timelines
             let startDate = min(oldDurations.keys.min() ?? Date(), newDurations.keys.min() ?? Date())
