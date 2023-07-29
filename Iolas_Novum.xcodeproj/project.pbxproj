@@ -56,6 +56,10 @@
 		C4485B732A6C23D100CE04E3 /* AddTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B722A6C23D100CE04E3 /* AddTodo.swift */; };
 		C4485B752A6C240200CE04E3 /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B742A6C240200CE04E3 /* TodoViewModel.swift */; };
 		C4485B772A6E9CD300CE04E3 /* TodoViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B762A6E9CD300CE04E3 /* TodoViewModel_Tests.swift */; };
+		C4485B792A6E9FD700CE04E3 /* AddGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B782A6E9FD700CE04E3 /* AddGoal.swift */; };
+		C4485B7B2A70146600CE04E3 /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B7A2A70146600CE04E3 /* GoalViewModel.swift */; };
+		C4485B812A72EC9B00CE04E3 /* ActivityManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B802A72EC9B00CE04E3 /* ActivityManagement.swift */; };
+		C4485B832A72ECA700CE04E3 /* ActivityStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B822A72ECA700CE04E3 /* ActivityStub.swift */; };
 		C46CC1342A615FE600F717D4 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1332A615FE600F717D4 /* Shop.swift */; };
 		C46CC1362A61631600F717D4 /* ShopItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1352A61631600F717D4 /* ShopItemViewModel.swift */; };
 		C46CC1382A61668A00F717D4 /* AddShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1372A61668A00F717D4 /* AddShopItem.swift */; };
@@ -130,6 +134,10 @@
 		C4485B722A6C23D100CE04E3 /* AddTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodo.swift; sourceTree = "<group>"; };
 		C4485B742A6C240200CE04E3 /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 		C4485B762A6E9CD300CE04E3 /* TodoViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel_Tests.swift; sourceTree = "<group>"; };
+		C4485B782A6E9FD700CE04E3 /* AddGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoal.swift; sourceTree = "<group>"; };
+		C4485B7A2A70146600CE04E3 /* GoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
+		C4485B802A72EC9B00CE04E3 /* ActivityManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManagement.swift; sourceTree = "<group>"; };
+		C4485B822A72ECA700CE04E3 /* ActivityStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStub.swift; sourceTree = "<group>"; };
 		C46CC1332A615FE600F717D4 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		C46CC1352A61631600F717D4 /* ShopItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemViewModel.swift; sourceTree = "<group>"; };
 		C46CC1372A61668A00F717D4 /* AddShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShopItem.swift; sourceTree = "<group>"; };
@@ -231,6 +239,7 @@
 				C41F07402A5DE82700EB907D /* UserViewModel.swift */,
 				C46CC1352A61631600F717D4 /* ShopItemViewModel.swift */,
 				C4485B742A6C240200CE04E3 /* TodoViewModel.swift */,
+				C4485B7A2A70146600CE04E3 /* GoalViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -247,14 +256,15 @@
 		C41F06FE2A5C2D0900EB907D /* View_Component */ = {
 			isa = PBXGroup;
 			children = (
+				C4485B852A72ECD200CE04E3 /* Activity */,
+				C4485B842A72ECC500CE04E3 /* Tag */,
 				C41F07062A5C426800EB907D /* Helper */,
 				C41F07042A5C38B200EB907D /* AddActivity.swift */,
-				C41F07072A5C427D00EB907D /* TagStub.swift */,
-				C41F070B2A5C579E00EB907D /* TagManagement.swift */,
 				C41F073A2A5D5CFC00EB907D /* AddTimeline.swift */,
 				C41F07442A5F091800EB907D /* EditUserInfo.swift */,
 				C46CC1372A61668A00F717D4 /* AddShopItem.swift */,
 				C4485B722A6C23D100CE04E3 /* AddTodo.swift */,
+				C4485B782A6E9FD700CE04E3 /* AddGoal.swift */,
 			);
 			path = View_Component;
 			sourceTree = "<group>";
@@ -317,6 +327,24 @@
 				C4485B762A6E9CD300CE04E3 /* TodoViewModel_Tests.swift */,
 			);
 			path = Novum_Tests;
+			sourceTree = "<group>";
+		};
+		C4485B842A72ECC500CE04E3 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				C41F070B2A5C579E00EB907D /* TagManagement.swift */,
+				C41F07072A5C427D00EB907D /* TagStub.swift */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
+		C4485B852A72ECD200CE04E3 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				C4485B822A72ECA700CE04E3 /* ActivityStub.swift */,
+				C4485B802A72EC9B00CE04E3 /* ActivityManagement.swift */,
+			);
+			path = Activity;
 			sourceTree = "<group>";
 		};
 		C46CC13C2A63302500F717D4 /* Time */ = {
@@ -457,6 +485,7 @@
 				C4485B732A6C23D100CE04E3 /* AddTodo.swift in Sources */,
 				C46CC1452A64041200F717D4 /* TimeInterval.swift in Sources */,
 				C41F07472A5FF8FB00EB907D /* Stopwatch.swift in Sources */,
+				C4485B792A6E9FD700CE04E3 /* AddGoal.swift in Sources */,
 				C41F07412A5DE82700EB907D /* UserViewModel.swift in Sources */,
 				C41F07452A5F091800EB907D /* EditUserInfo.swift in Sources */,
 				C41F07032A5C2EE200EB907D /* Date.swift in Sources */,
@@ -465,9 +494,11 @@
 				C46CC1432A6330CB00F717D4 /* ActivityStatsViewModel.swift in Sources */,
 				C41F06F72A5C268900EB907D /* Today.swift in Sources */,
 				C41F06FA2A5C286700EB907D /* ActivityViewModel.swift in Sources */,
+				C4485B7B2A70146600CE04E3 /* GoalViewModel.swift in Sources */,
 				C41F070C2A5C579E00EB907D /* TagManagement.swift in Sources */,
 				C41F070A2A5C4E0A00EB907D /* TagViewModel.swift in Sources */,
 				C46CC1472A6425D800F717D4 /* Statistics.swift in Sources */,
+				C4485B812A72EC9B00CE04E3 /* ActivityManagement.swift in Sources */,
 				C46CC1382A61668A00F717D4 /* AddShopItem.swift in Sources */,
 				C41F07162A5C62B500EB907D /* WrappingHStack.swift in Sources */,
 				C41F06FD2A5C2AB700EB907D /* Influence.swift in Sources */,
@@ -482,6 +513,7 @@
 				C41F07342A5D55A000EB907D /* View.swift in Sources */,
 				C41F073D2A5D63AA00EB907D /* TimelineViewModel.swift in Sources */,
 				C46CC1342A615FE600F717D4 /* Shop.swift in Sources */,
+				C4485B832A72ECA700CE04E3 /* ActivityStub.swift in Sources */,
 				C41F06E12A5C196200EB907D /* ContentView.swift in Sources */,
 				C41F07372A5D587000EB907D /* OffsetKey.swift in Sources */,
 				C41F07082A5C427D00EB907D /* TagStub.swift in Sources */,

@@ -15,9 +15,17 @@ struct Today: View {
         animation: .easeInOut)
     var activities: FetchedResults<ActivityEntity>
     
+    @FetchRequest(
+        entity: GoalEntity.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \GoalEntity.name, ascending: false)],
+        predicate: nil,
+        animation: .easeInOut)
+    var goals: FetchedResults<GoalEntity>
+    
     @Environment(\.self) var env
     @StateObject var activityModel: ActivityViewModel = .init()
     @StateObject var todoModel: TodoViewModel = .init()
+    @StateObject var goalModel: GoalViewModel = .init()
     
     @State private var isEditNavigationActive = false
     
@@ -32,8 +40,12 @@ struct Today: View {
                             Text("Add Activity")
                         }
                         
-                        NavigationLink(destination: TagManagement(isSelectionMode: false)) {
+                        NavigationLink(destination: TagManagement(isSelectionMode: false, onTagSelected: { _ in })) {
                             Text("Add Tag")
+                        }
+                        
+                        NavigationLink(destination: AddGoal().environmentObject(goalModel)) {
+                            Text("Add Goal")
                         }
                     } label: {
                         Label(
@@ -45,13 +57,19 @@ struct Today: View {
                 .padding(.bottom, 10)
             
             ScrollView(.vertical, showsIndicators: false) {
+                Text("Activity")
+                    .thicccboi(16, .thin)
+                    .foregroundColor(Color("Gray"))
+                Divider()
+                    .overlay(Color("DarkGreen"))
+                
                 VStack(spacing: 0) {
                     ForEach(activities, id: \.id) { activity in
                         ActivityCard(activity: activity)
                     }
                 }
                 
-                Text("Todos")
+                Text("Todo")
                     .thicccboi(16, .thin)
                     .foregroundColor(Color("Gray"))
                 Divider()
@@ -67,6 +85,18 @@ struct Today: View {
                                     todoModel.fetchAndFilterTodos(context: env.managedObjectContext)
                                 }
                             }
+                    }
+                }
+                
+                Text("Goals")
+                    .thicccboi(16, .thin)
+                    .foregroundColor(Color("Gray"))
+                Divider()
+                    .overlay(Color("DarkGreen"))
+                
+                VStack(spacing: 0) {
+                    ForEach(goals, id: \.id) { goal in
+                        GoalCard(goal: goal)
                     }
                 }
             }
@@ -166,6 +196,33 @@ extension Today {
         } else {
             EmptyView()
         }
+    }
+    
+    @ViewBuilder
+    private func GoalCard(goal: GoalEntity) -> some View {
+        VStack {
+            if let cycle = GoalCycle(rawValue: goal.cycle ?? "") {
+                switch cycle {
+                case .daily, .weekly, .monthly, .yearly:
+                    HStack(alignment: .center) {
+                        Text(goal.name ?? "Goal Name")
+                            .thicccboi(12, .regular)
+                        Text("\((goal.cycle ?? "unkown").capitalized) Goal")
+                            .thicccboi(12, .thin)
+                    }
+                    ProgressView(value: goal.currentValue, total: goal.aim)
+                case .single:
+                    HStack(alignment: .center) {
+                        Text(goal.name ?? "Goal Name")
+                            .thicccboi(12, .regular)
+                        Text("Until \(goal.dueDate?.formatToString("dd MMM yyyy") ?? Date().formatToString("dd MMM yyyy"))")
+                            .thicccboi(12, .thin)
+                    }
+                    ProgressView(value: goal.currentValue, total: goal.aim)
+                }
+            }
+        }
+        .padding(.horizontal)
     }
     
     private func isTodoCompleted(todo: TodoEntity) -> Bool {

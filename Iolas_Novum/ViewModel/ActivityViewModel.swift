@@ -19,7 +19,6 @@ final class ActivityViewModel: ObservableObject {
     @Published var selectedTags: Set<TagEntity> = []
     
     // MARK: Functional Variables
-    @Published var addorEditActivity: Bool = false
     @Published var editActivity: ActivityEntity?
     
     // MARK: CRUD
