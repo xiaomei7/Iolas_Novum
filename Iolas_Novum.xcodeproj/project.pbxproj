@@ -69,6 +69,7 @@
 		C46CC1452A64041200F717D4 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1442A64041200F717D4 /* TimeInterval.swift */; };
 		C46CC1472A6425D800F717D4 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46CC1462A6425D800F717D4 /* Statistics.swift */; };
 		C46CC14C2A6566C700F717D4 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = C46CC14B2A6566C700F717D4 /* SwiftUICharts */; };
+		C4E569BE2A782BB6009A5CD3 /* GoalViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E569BD2A782BB6009A5CD3 /* GoalViewModel_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		C46CC1422A6330CB00F717D4 /* ActivityStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsViewModel.swift; sourceTree = "<group>"; };
 		C46CC1442A64041200F717D4 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		C46CC1462A6425D800F717D4 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		C4E569BD2A782BB6009A5CD3 /* GoalViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModel_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +327,7 @@
 				C4485B6E2A6AD9AA00CE04E3 /* DailyStatsViewModel_Tests.swift */,
 				C4485B702A6AEE5C00CE04E3 /* TimelineEntryViewModel_Tests.swift */,
 				C4485B762A6E9CD300CE04E3 /* TodoViewModel_Tests.swift */,
+				C4E569BD2A782BB6009A5CD3 /* GoalViewModel_Tests.swift */,
 			);
 			path = Novum_Tests;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				C4485B632A6A8CBF00CE04E3 /* UserViewModel_Tests.swift in Sources */,
 				C4485B6D2A6AD75B00CE04E3 /* ActivityStatsViewModel_Tests.swift in Sources */,
 				C4485B652A6AB54F00CE04E3 /* TagViewModel_Tests.swift in Sources */,
+				C4E569BE2A782BB6009A5CD3 /* GoalViewModel_Tests.swift in Sources */,
 				C4485B672A6AB73600CE04E3 /* TestCoreDataStack.swift in Sources */,
 				C4485B6B2A6AB92100CE04E3 /* ActivityViewModel_Tests.swift in Sources */,
 				C4485B712A6AEE5C00CE04E3 /* TimelineEntryViewModel_Tests.swift in Sources */,
