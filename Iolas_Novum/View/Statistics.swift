@@ -40,7 +40,7 @@ struct Statistics: View {
                 .labelsHidden()
                 
                 if statRange == .daily {
-                    DatePicker
+                    DatePickerView
                 } else if statRange == .weekly {
                     WeekPicker
                 } else if statRange == .monthly {
@@ -90,7 +90,7 @@ extension Statistics {
                                       noDataText: Text("No Data"))
     }
     
-    private var DatePicker: some View {
+    private var DatePickerView: some View {
         HStack {
             Button(action: {
                 selectedDate = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate) ?? selectedDate

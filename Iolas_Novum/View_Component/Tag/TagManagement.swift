@@ -16,11 +16,10 @@ struct TagManagement: View {
     var tags: FetchedResults<TagEntity>
     
     @Environment(\.self) var env
-    @EnvironmentObject var activityModel: ActivityViewModel
-    
     @StateObject var tagModel: TagViewModel = .init()
     
     let isSelectionMode: Bool
+    let onTagSelected: (TagEntity) -> Void
     
     var body: some View {
         VStack(spacing: 0) {
@@ -55,9 +54,7 @@ struct TagManagement: View {
                     ForEach(tags) { tag in
                         Button {
                             if isSelectionMode {
-                                if !activityModel.selectedTags.contains(where: { $0.id == tag.id }) {
-                                    activityModel.selectedTags.insert(tag)
-                                }
+                                onTagSelected(tag)
                                 env.dismiss()
                             }
                         } label: {

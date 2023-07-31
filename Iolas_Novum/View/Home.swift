@@ -13,6 +13,7 @@ struct Home: View {
     
     @StateObject var timelineModel: TimelineEntryViewModel = .init()
     @StateObject var stopwatchModel : StopwatchViewModel = .init()
+    @StateObject var activityStatModel: ActivityStatsViewModel = .init()
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -21,6 +22,7 @@ struct Home: View {
             }
             .environmentObject(timelineModel)
             .environmentObject(stopwatchModel)
+            .environmentObject(activityStatModel)
             .tabItem{
                 Image(systemName: "calendar.day.timeline.left")
                 Text("Timeline")
@@ -40,6 +42,7 @@ struct Home: View {
             Stopwatch()
                 .environmentObject(timelineModel)
                 .environmentObject(stopwatchModel)
+                .environmentObject(activityStatModel)
                 .tabItem {
                     Image(systemName: "digitalcrown.arrow.clockwise")
                     Text("Timer")

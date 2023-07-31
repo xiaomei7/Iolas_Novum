@@ -20,6 +20,7 @@ struct AddActivity: View {
                 HStack {
                     Button {
                         if activityModel.deleteActivity(context: env.managedObjectContext){
+                            activityModel.resetData()
                             env.dismiss()
                         }
                     } label: {
@@ -122,7 +123,7 @@ extension AddActivity {
     private var Description: some View {
         Title("DESCRIPTION", Color("Cream"))
         
-        TextField("About Your Task", text: $activityModel.description)
+        TextField("About Your Activity", text: $activityModel.description)
             .foregroundColor(Color("Cream"))
             .thicccboi(16, .regular)
             .padding(.top, 2)
@@ -208,7 +209,11 @@ extension AddActivity {
             
             Spacer()
             
-            NavigationLink(destination: TagManagement(isSelectionMode: true).environmentObject(activityModel)) {
+            NavigationLink(destination: TagManagement(isSelectionMode: true) { selectedTag in
+                if !activityModel.selectedTags.contains(where: { $0.id == selectedTag.id }) {
+                    activityModel.selectedTags.insert(selectedTag)
+                }
+            }) {
                 Image(systemName: "plus")
                     .font(.system(size: 16))
                     .foregroundColor(Color("Gray"))

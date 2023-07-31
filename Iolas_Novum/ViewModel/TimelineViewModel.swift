@@ -84,7 +84,7 @@ final class TimelineEntryViewModel: ObservableObject {
                 try context.save()
                 return true
             } catch {
-                print("Failed to save context: \(error)")
+                print("⛔️ Failed to save context: \(error)")
             }
         }
         

@@ -11,8 +11,10 @@
         <attribute name="isArchived" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="activityStats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityStats" inverseName="activity" inverseEntity="ActivityStats"/>
+        <relationship name="goals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GoalEntity" inverseName="activities" inverseEntity="GoalEntity"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TagEntity" inverseName="activities" inverseEntity="TagEntity"/>
         <relationship name="timelineEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TimelineEntry" inverseName="activity" inverseEntity="TimelineEntry"/>
+        <relationship name="todos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TodoEntity" inverseName="activity" inverseEntity="TodoEntity"/>
     </entity>
     <entity name="ActivityStats" representedClassName="ActivityStats" syncable="YES" codeGenerationType="class">
         <attribute name="accumulateTime" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -26,6 +28,22 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="activitiesStats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityStats" inverseName="dailyStats" inverseEntity="ActivityStats"/>
     </entity>
+    <entity name="GoalEntity" representedClassName="GoalEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="aim" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="created" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="currentValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="cycle" optional="YES" attributeType="String"/>
+        <attribute name="describe" optional="YES" attributeType="String"/>
+        <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="exceedAim" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="punishment" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="reward" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityEntity" inverseName="goals" inverseEntity="ActivityEntity"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TagEntity" inverseName="goals" inverseEntity="TagEntity"/>
+    </entity>
     <entity name="ShopItem" representedClassName="ShopItem" syncable="YES" codeGenerationType="class">
         <attribute name="describe" attributeType="String"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
@@ -37,6 +55,7 @@
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityEntity" inverseName="tags" inverseEntity="ActivityEntity"/>
+        <relationship name="goals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GoalEntity" inverseName="tags" inverseEntity="GoalEntity"/>
     </entity>
     <entity name="TimelineEntry" representedClassName="TimelineEntry" syncable="YES" codeGenerationType="class">
         <attribute name="describe" optional="YES" attributeType="String"/>
@@ -45,6 +64,21 @@
         <attribute name="points" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="activity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityEntity" inverseName="timelineEntries" inverseEntity="ActivityEntity"/>
+    </entity>
+    <entity name="TodoCompletionDates" representedClassName="TodoCompletionDates" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isComplete" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="todo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TodoEntity" inverseName="completionDates" inverseEntity="TodoEntity"/>
+    </entity>
+    <entity name="TodoEntity" representedClassName="TodoEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="color" attributeType="String"/>
+        <attribute name="created" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="frequency" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[String]"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="reward" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="activity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityEntity" inverseName="todos" inverseEntity="ActivityEntity"/>
+        <relationship name="completionDates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TodoCompletionDates" inverseName="todo" inverseEntity="TodoCompletionDates"/>
     </entity>
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>

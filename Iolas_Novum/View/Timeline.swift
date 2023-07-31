@@ -24,6 +24,7 @@ struct Timeline: View {
     @EnvironmentObject var userModel: UserViewModel
     @EnvironmentObject var timelineModel: TimelineEntryViewModel
     @EnvironmentObject var stopwatchModel: StopwatchViewModel
+    @EnvironmentObject var activityStatModel: ActivityStatsViewModel
     @Environment(\.self) var env
     
     @Binding var selectedTab: String
@@ -91,6 +92,7 @@ struct Timeline: View {
             AddTimeline()
                 .environmentObject(userModel)
                 .environmentObject(timelineModel)
+                .environmentObject(activityStatModel)
                 .presentationDetents([.height(300)])
                 .interactiveDismissDisabled()
                 .presentationCornerRadius(30)
