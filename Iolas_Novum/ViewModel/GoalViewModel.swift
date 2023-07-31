@@ -147,14 +147,12 @@ final class GoalViewModel: ObservableObject {
                 goal.currentValue = relatedActivitiesStats.reduce(0.0) { total, activityStat in
                     total + activityStat.1 // Add the accumulateTime of each activity
                 }
-                
-                print("📝", goal)
-                print("📝", goal.currentValue)
+
             }
             
             try context.save()
         } catch {
-            print("Failed to fetch goals: \(error)")
+            print("⛔️ Failed to fetch goals: \(error)")
         }
     }
     

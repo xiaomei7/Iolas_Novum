@@ -72,7 +72,6 @@ final class ShopItemViewModel: ObservableObject {
     }
     
     func resetData() {
-        print("⚠️ Reset shopitem view model.")
         name = ""
         description = ""
         price = 0.0

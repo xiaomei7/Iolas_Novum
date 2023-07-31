@@ -27,7 +27,7 @@ final class DailyStatsViewModel: ObservableObject {
             
             return data
         } catch {
-            print("Failed to fetch DailyStats: \(error)")
+            print("⛔️ Failed to fetch DailyStats: \(error)")
             return []
         }
     }
@@ -66,7 +66,7 @@ final class DailyStatsViewModel: ObservableObject {
             
             return data
         } catch {
-            print("Failed to fetch WeeklyStats: \(error)")
+            print("⛔️ Failed to fetch WeeklyStats: \(error)")
             return []
         }
     }
@@ -102,7 +102,7 @@ final class DailyStatsViewModel: ObservableObject {
             
             return data
         } catch {
-            print("Failed to fetch MonthlyStats: \(error)")
+            print("⛔️ Failed to fetch MonthlyStats: \(error)")
             return []
         }
     }

@@ -49,11 +49,7 @@ final class TimelineEntryViewModel: ObservableObject {
         }
     }
     @Published var editTimeline: TimelineEntry?
-    @Published var income: Double? {
-        didSet {
-            print("⚠️ Income in TimelineViewModel is set?", income ?? "Not set.")
-        }
-    }
+    @Published var income: Double?
     
     func createTimelineEntry(context: NSManagedObjectContext) -> Bool {
         let timelineEntry = TimelineEntry(context: context)
@@ -113,9 +109,7 @@ final class TimelineEntryViewModel: ObservableObject {
         }
     }
     
-    func resetData() {
-        print("⚠️ TimelineViewModel data reseted")
-        
+    func resetData() {        
         activity = nil
         start = Date().addingTimeInterval(-3600)
         end = Date()
