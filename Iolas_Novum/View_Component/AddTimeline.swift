@@ -18,7 +18,7 @@ struct AddTimeline: View {
     @Environment(\.self) var env
     @EnvironmentObject var timelineModel: TimelineEntryViewModel
     @EnvironmentObject var userModel: UserViewModel
-    @StateObject var activityStatModel: ActivityStatsViewModel = .init()
+    @EnvironmentObject var activityStatModel: ActivityStatsViewModel
     
     @State private var errorMessage: String = ""
     @State private var oldTimelinePoints: Double = 0.0

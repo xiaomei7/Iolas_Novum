@@ -19,7 +19,8 @@ struct Stopwatch: View {
     @EnvironmentObject var stopwatchModel: StopwatchViewModel
     @EnvironmentObject var timelineModel: TimelineEntryViewModel
     @EnvironmentObject var userModel: UserViewModel
-            
+    @EnvironmentObject var activityStatModel: ActivityStatsViewModel
+    
     var body: some View {
         ZStack {
             Color("Cream").ignoresSafeArea()
@@ -140,7 +141,11 @@ extension Stopwatch {
                     if timelineModel.createTimelineEntry(context: env.managedObjectContext) {
                         userModel.points += timelineModel.points
                         if userModel.updatePoints(context: env.managedObjectContext) {
-                            env.dismiss()
+                            let durations = Date.calculateDurations(date1: timelineModel.start, date2: timelineModel.end)
+                            activityStatModel.activity = timelineModel.activity
+                            if activityStatModel.createOrUpdateActivityStats(context: env.managedObjectContext, newDurations: durations) {
+                                env.dismiss()
+                            }
                         }
                     }
                 } label: {
