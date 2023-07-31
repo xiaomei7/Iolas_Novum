@@ -184,7 +184,7 @@ extension AddGoal {
         HStack(alignment: .center) {
             Title("AIM:")
             
-            TextField("0.0", value: $goalModel.aim, formatter: numberFormatter)
+            TextField("0.0", value: $goalModel.aimInMinutes, formatter: numberFormatter)
                 .padding(.vertical, 10)
                 .padding(.horizontal, 12)
                 .background(Color("LightBrown").shadow(.drop(color: .black.opacity(0.25), radius: 2)), in: RoundedRectangle(cornerRadius: 10))

@@ -97,6 +97,7 @@ struct Today: View {
                 VStack(spacing: 0) {
                     ForEach(goals, id: \.id) { goal in
                         GoalCard(goal: goal)
+                            .padding(.vertical)
                     }
                 }
             }
@@ -124,6 +125,7 @@ struct Today: View {
         }
         .onAppear {
             todoModel.fetchAndFilterTodos(context: env.managedObjectContext)
+            goalModel.updateCurrentValue(for: Date(), context: env.managedObjectContext)
         }
     }
 }
@@ -210,13 +212,29 @@ extension Today {
                         Text("\((goal.cycle ?? "unkown").capitalized) Goal")
                             .thicccboi(12, .thin)
                     }
-                    ProgressView(value: goal.currentValue, total: goal.aim)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        ForEach(Array(goal.activities as? Set<ActivityEntity> ?? []), id: \.self) { activity in
+                            ActivityStub(activity: activity, hasDelete: false, activities: .constant(Set<ActivityEntity>()))
+                        }
+                        ForEach(Array(goal.tags as? Set<TagEntity> ?? []), id: \.self) { tag in
+                            TagStub(tag: tag, hasDelete: false, tags: .constant(Set<TagEntity>()))
+                        }
+                    }
+                    ProgressView(value: min(goal.currentValue, goal.aim), total: goal.aim) // TODO: style this progress bar
                 case .single:
                     HStack(alignment: .center) {
                         Text(goal.name ?? "Goal Name")
                             .thicccboi(12, .regular)
                         Text("Until \(goal.dueDate?.formatToString("dd MMM yyyy") ?? Date().formatToString("dd MMM yyyy"))")
                             .thicccboi(12, .thin)
+                    }
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        ForEach(Array(goal.activities as? Set<ActivityEntity> ?? []), id: \.self) { activity in
+                            ActivityStub(activity: activity, hasDelete: false, activities: .constant(Set<ActivityEntity>()))
+                        }
+                        ForEach(Array(goal.tags as? Set<TagEntity> ?? []), id: \.self) { tag in
+                            TagStub(tag: tag, hasDelete: false, tags: .constant(Set<TagEntity>()))
+                        }
                     }
                     ProgressView(value: goal.currentValue, total: goal.aim)
                 }
