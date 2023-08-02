@@ -30,11 +30,6 @@ struct Iolas_NovumApp: App {
                 newUser.points = 0.0
                 newUser.motto = "Life is short."
                 
-                // Create the special "unallocated" activity.
-//                let unallocatedActivity = ActivityEntity(context: context)
-//                unallocatedActivity.id = UUID()
-//                unallocatedActivity.name = "Unallocated"
-                
                 try context.save()
             }
         } catch {

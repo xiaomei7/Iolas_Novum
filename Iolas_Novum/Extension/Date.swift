@@ -93,11 +93,9 @@ extension Date {
         return fetchWeek(previousDate)
     }
     
-    func isInWeekday(_ frequency: [String]) -> Bool {
+    func isInWeekday(_ frequency: [Int]) -> Bool {
         let weekday = Calendar.current.component(.weekday, from: self)
-        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-        let dayOfWeek = days[weekday - 1]
-        return frequency.contains(dayOfWeek)
+        return frequency.contains(weekday)
     }
     
     func startOfMonth() -> Date {

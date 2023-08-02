@@ -14,7 +14,7 @@ final class TodoViewModel: ObservableObject {
     // MARK: Todo Attributes
     @Published var name: String = ""
     @Published var color: String = "PresetColor-1"
-    @Published var frequency: [String] = []
+    @Published var frequency: [Int] = []
     @Published var reward: Double = 0.0
     @Published var linkedActivity: ActivityEntity? = nil
     @Published var completionDates: [TodoCompletionDates] = []
@@ -45,9 +45,10 @@ final class TodoViewModel: ObservableObject {
         let completionDatesSet = NSSet(array: completionDates)
         todo.completionDates = completionDatesSet
         
-        if let _ = try? context.save(){
+        if let _ = try? context.save() {
             return true
         }
+        print("⛔️ Failed to create todos.")
         return false
     }
     
@@ -67,6 +68,7 @@ final class TodoViewModel: ObservableObject {
                 return true
             }
         }
+        print("⛔️ Failed to update todos.")
         return false
     }
     
@@ -86,12 +88,14 @@ final class TodoViewModel: ObservableObject {
         fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \TodoEntity.name, ascending: false)]
         do {
             let allTodos = try context.fetch(fetchRequest)
+            let calendar = Calendar.current
+            let today = calendar.component(.weekday, from: Date())
             todos = allTodos.filter { todo in
                 if todo.frequency?.isEmpty ?? true {
                     // Include todos that do not have a frequency
                     return true
                 }
-                if let frequency = todo.frequency, Date().isInWeekday(frequency) {
+                if let frequency = todo.frequency, frequency.contains(today) {
                     // Include todos where today is in the frequency
                     return true
                 }
@@ -101,6 +105,7 @@ final class TodoViewModel: ObservableObject {
             print("⛔️ Failed to fetch todos: \(error)")
         }
     }
+    
     
     @discardableResult
     func updateTodoCompletionStatus(todo: TodoEntity, isComplete: Bool, context: NSManagedObjectContext) -> Bool {

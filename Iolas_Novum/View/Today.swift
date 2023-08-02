@@ -26,6 +26,7 @@ struct Today: View {
     @StateObject var activityModel: ActivityViewModel = .init()
     @StateObject var todoModel: TodoViewModel = .init()
     @StateObject var goalModel: GoalViewModel = .init()
+    @EnvironmentObject var userModel: UserViewModel
     
     @State private var isEditNavigationActive = false
     
@@ -81,8 +82,15 @@ struct Today: View {
                             .onTapGesture {
                                 let isComplete = !isTodoCompleted(todo: todo)
                                 withAnimation(.linear) {
-                                    todoModel.updateTodoCompletionStatus(todo: todo, isComplete: isComplete, context: env.managedObjectContext)
-                                    todoModel.fetchAndFilterTodos(context: env.managedObjectContext)
+                                    if isComplete {
+                                        userModel.points += todo.reward
+                                    } else {
+                                        userModel.points -= todo.reward
+                                    }
+                                    if userModel.updatePoints(context: env.managedObjectContext) {
+                                        todoModel.updateTodoCompletionStatus(todo: todo, isComplete: isComplete, context: env.managedObjectContext)
+                                        todoModel.fetchAndFilterTodos(context: env.managedObjectContext)
+                                    }
                                 }
                             }
                     }
@@ -117,6 +125,7 @@ struct Today: View {
             .padding(15)
         })
         .sheet(isPresented: $todoModel.addOrEditTodo, onDismiss: {
+            todoModel.fetchAndFilterTodos(context: env.managedObjectContext)
         }) {
             AddTodo()
                 .environmentObject(todoModel)
@@ -193,7 +202,7 @@ extension Today {
                 Text(todo.name ?? "")
                 Spacer()
             }
-            .font(.title2)
+            .thicccboi(16, .regular)
             .padding(.vertical, 8)
         } else {
             EmptyView()
