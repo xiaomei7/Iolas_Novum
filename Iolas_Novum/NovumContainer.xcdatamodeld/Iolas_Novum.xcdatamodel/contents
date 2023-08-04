@@ -38,6 +38,8 @@
         <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="exceedAim" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isRewardGiven" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lastResetDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="punishment" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="reward" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>

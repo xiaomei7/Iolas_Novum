@@ -16,6 +16,10 @@ enum GoalCycle: String, CaseIterable {
     case single = "Single"
 }
 
+enum GoalError: Error {
+    case failedToUpdatePoints
+}
+
 final class GoalViewModel: ObservableObject {
     // MARK: Goal's Properties
     @Published var name: String = ""
@@ -68,6 +72,8 @@ final class GoalViewModel: ObservableObject {
         goal.tags = NSSet(set: linkedTags)
         goal.currentValue = currentValue
         goal.created = Date()
+        goal.isRewardGiven = false
+        goal.lastResetDate = Date()
         
         if let _ = try? context.save() {
             return true
@@ -108,7 +114,7 @@ final class GoalViewModel: ObservableObject {
     }
     
     // MARK: Detail Functions
-    func updateCurrentValue(for date: Date, context: NSManagedObjectContext) {
+    func updateCurrentValue(for date: Date, context: NSManagedObjectContext, userModel: UserViewModel) {
         let fetchRequest: NSFetchRequest<GoalEntity> = GoalEntity.fetchRequest()
         
         do {
@@ -122,14 +128,30 @@ final class GoalViewModel: ObservableObject {
                 
                 switch cycle {
                 case .daily:
+                    if Calendar.current.isDateInToday(goal.lastResetDate ?? Date()) {
+                        goal.lastResetDate = Date()
+                        goal.isRewardGiven = false
+                    }
                     statsData = dailyStatsViewModel.fetchDailyStatsData(for: date, context: context)
                 case .weekly:
+                    if Calendar.current.component(.weekOfYear, from: goal.lastResetDate ?? Date()) != Calendar.current.component(.weekOfYear, from: Date()) {
+                        goal.lastResetDate = Date()
+                        goal.isRewardGiven = false
+                    }
                     statsData = dailyStatsViewModel.fetchWeeklyStatsData(for: date, context: context)
                 case .monthly:
+                    if Calendar.current.component(.month, from: goal.lastResetDate ?? Date()) != Calendar.current.component(.month, from: Date()) {
+                        goal.lastResetDate = Date()
+                        goal.isRewardGiven = false
+                    }
                     let startOfMonth = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: date))!
                     let endOfMonth = Calendar.current.date(byAdding: .month, value: 1, to: startOfMonth)!
                     statsData = dailyStatsViewModel.fetchMonthlyStatsData(from: startOfMonth, to: endOfMonth, context: context)
                 case .yearly:
+                    if Calendar.current.component(.year, from: goal.lastResetDate ?? Date()) != Calendar.current.component(.year, from: Date()) {
+                        goal.lastResetDate = Date()
+                        goal.isRewardGiven = false
+                    }
                     let startOfYear = Calendar.current.date(from: Calendar.current.dateComponents([.year], from: date))!
                     let endOfYear = Calendar.current.date(byAdding: .year, value: 1, to: startOfYear)!
                     statsData = dailyStatsViewModel.fetchMonthlyStatsData(from: startOfYear, to: endOfYear, context: context)
@@ -147,7 +169,14 @@ final class GoalViewModel: ObservableObject {
                 goal.currentValue = relatedActivitiesStats.reduce(0.0) { total, activityStat in
                     total + activityStat.1 // Add the accumulateTime of each activity
                 }
-
+                
+                if goal.currentValue >= goal.aim && !goal.isRewardGiven {
+                    userModel.points += goal.reward
+                    goal.isRewardGiven = true
+                    if !userModel.updatePoints(context: context) {
+                        throw GoalError.failedToUpdatePoints
+                    }
+                }
             }
             
             try context.save()
@@ -155,7 +184,6 @@ final class GoalViewModel: ObservableObject {
             print("⛔️ Failed to fetch goals: \(error)")
         }
     }
-    
     
     func resetData() {
         name = ""
