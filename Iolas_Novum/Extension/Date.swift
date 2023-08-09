@@ -63,7 +63,6 @@ extension Date {
             return []
         }
         
-        // Iterating to get the Full Week
         (0..<7).forEach { index in
             if let weekDay = calendar.date(byAdding: .day, value: index, to: starOfWeek) {
                 week.append(.init(date: weekDay))

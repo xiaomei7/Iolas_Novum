@@ -5,10 +5,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>THICCCBOI-Bold.ttf</string>
+		<string>THICCCBOI-Black.tff</string>
 		<string>THICCCBOI-Light.ttf</string>
 		<string>THICCCBOI-Medium.ttf</string>
 		<string>THICCCBOI-Regular.ttf</string>
-		<string>THICCCBOI-Black.tff</string>
 		<string>THICCCBOI-SemiBold.ttf</string>
 		<string>THICCCBOI-Thin.ttf</string>
 		<string>THICCCBOI-ExtraBold.ttf</string>

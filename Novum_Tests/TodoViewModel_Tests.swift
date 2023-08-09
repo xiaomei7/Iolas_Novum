@@ -44,7 +44,7 @@ final class TodoViewModel_Tests: XCTestCase {
         // Given
         viewModel.name = "Test Todo"
         viewModel.color = "PresetColor-1"
-        viewModel.frequency = ["Monday", "Tuesday"]
+        viewModel.frequency = [1, 2]
         viewModel.reward = 10.0
         viewModel.linkedActivity = createActivityEntity()
         viewModel.completionDates = []
@@ -63,14 +63,14 @@ final class TodoViewModel_Tests: XCTestCase {
         todo.name = "Test Todo"
         todo.color = "PresetColor-1"
         todo.reward = 10.0
-        todo.frequency = ["Monday", "Tuesday"]
+        todo.frequency = [1, 2]
         todo.activity = createActivityEntity()
         todo.created = Date()
         
         viewModel.editTodo = todo
         viewModel.name = "Updated Todo"
         viewModel.color = "PresetColor-2"
-        viewModel.frequency = ["Wednesday", "Thursday"]
+        viewModel.frequency = [3, 4]
         viewModel.reward = 20.0
         viewModel.linkedActivity = createActivityEntity()
         viewModel.completionDates = []
@@ -89,7 +89,7 @@ final class TodoViewModel_Tests: XCTestCase {
         todo.name = "Test Todo"
         todo.color = "PresetColor-1"
         todo.reward = 10.0
-        todo.frequency = ["Monday", "Tuesday"]
+        todo.frequency = [1, 2]
         todo.activity = nil
         todo.created = Date()
         
@@ -109,9 +109,15 @@ final class TodoViewModel_Tests: XCTestCase {
         todo.name = "Test Todo"
         todo.color = "PresetColor-1"
         todo.reward = 10.0
-        todo.frequency = ["Monday", "Tuesday"]
+        todo.frequency = [1, 2, 3, 4, 5, 6, 7]
         todo.activity = createActivityEntity()
         todo.created = Date()
+        
+        do {
+            try context.save()
+        } catch {
+            XCTFail("Failed to save context: \(error)")
+        }
         
         // When
         viewModel.fetchAndFilterTodos(context: context)
@@ -119,6 +125,7 @@ final class TodoViewModel_Tests: XCTestCase {
         // Then
         XCTAssertFalse(viewModel.todos.isEmpty)
     }
+
     
     func test_updateTodoCompletionStatus_shouldReturnTrue() {
         // Given
@@ -127,7 +134,7 @@ final class TodoViewModel_Tests: XCTestCase {
         todo.name = "Test Todo"
         todo.color = "PresetColor-1"
         todo.reward = 10.0
-        todo.frequency = ["Monday", "Tuesday"]
+        todo.frequency = [1, 2]
         todo.activity = createActivityEntity()
         todo.created = Date()
         
