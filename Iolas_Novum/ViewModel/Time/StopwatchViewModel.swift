@@ -1,10 +1,3 @@
-//
-//  StopwatchViewModel.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 13/07/2023.
-//
-
 import Foundation
 
 final class StopwatchViewModel: ObservableObject {

@@ -1,10 +1,3 @@
-//
-//  ShopItemViewModel.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 14/07/2023.
-//
-
 import Foundation
 import CoreData
 

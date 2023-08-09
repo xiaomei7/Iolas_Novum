@@ -1,10 +1,3 @@
-//
-//  TodoViewModel.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 22/07/2023.
-//
-
 import Foundation
 import CoreData
 
@@ -113,10 +106,8 @@ final class TodoViewModel: ObservableObject {
         let today = Date().startOfDay
         
         if let completionDate = completionDatesSet?.first(where: { $0.date?.startOfDay == today }) {
-            // Update the existing TodoCompletionDates object.
             completionDate.isComplete = isComplete
         } else {
-            // Create a new TodoCompletionDates object.
             let newCompletionDate = TodoCompletionDates(context: context)
             newCompletionDate.date = today
             newCompletionDate.isComplete = isComplete
