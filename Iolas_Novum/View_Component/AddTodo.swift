@@ -1,10 +1,3 @@
-//
-//  AddTodo.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 22/07/2023.
-//
-
 import SwiftUI
 
 struct AddTodo: View {

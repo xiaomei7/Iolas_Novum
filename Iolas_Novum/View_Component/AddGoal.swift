@@ -1,10 +1,3 @@
-//
-//  AddGoal.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 24/07/2023.
-//
-
 import SwiftUI
 
 struct AddGoal: View {

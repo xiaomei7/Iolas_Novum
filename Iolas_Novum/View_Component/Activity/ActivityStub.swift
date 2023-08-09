@@ -1,10 +1,3 @@
-//
-//  ActivityStub.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 27/07/2023.
-//
-
 import SwiftUI
 
 struct ActivityStub: View {
