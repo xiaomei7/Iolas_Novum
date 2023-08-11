@@ -1,10 +1,3 @@
-//
-//  Iolas_NovumApp.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 10/07/2023.
-//
-
 import SwiftUI
 import CoreData
 

@@ -50,7 +50,6 @@
 		C4485B692A6AB84B00CE04E3 /* ShopItemViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B682A6AB84B00CE04E3 /* ShopItemViewModel_Tests.swift */; };
 		C4485B6B2A6AB92100CE04E3 /* ActivityViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B6A2A6AB92100CE04E3 /* ActivityViewModel_Tests.swift */; };
 		C4485B6D2A6AD75B00CE04E3 /* ActivityStatsViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B6C2A6AD75B00CE04E3 /* ActivityStatsViewModel_Tests.swift */; };
-		C4485B6F2A6AD9AA00CE04E3 /* DailyStatsViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B6E2A6AD9AA00CE04E3 /* DailyStatsViewModel_Tests.swift */; };
 		C4485B712A6AEE5C00CE04E3 /* TimelineEntryViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B702A6AEE5C00CE04E3 /* TimelineEntryViewModel_Tests.swift */; };
 		C4485B732A6C23D100CE04E3 /* AddTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B722A6C23D100CE04E3 /* AddTodo.swift */; };
 		C4485B752A6C240200CE04E3 /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4485B742A6C240200CE04E3 /* TodoViewModel.swift */; };
@@ -128,7 +127,6 @@
 		C4485B682A6AB84B00CE04E3 /* ShopItemViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemViewModel_Tests.swift; sourceTree = "<group>"; };
 		C4485B6A2A6AB92100CE04E3 /* ActivityViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel_Tests.swift; sourceTree = "<group>"; };
 		C4485B6C2A6AD75B00CE04E3 /* ActivityStatsViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityStatsViewModel_Tests.swift; sourceTree = "<group>"; };
-		C4485B6E2A6AD9AA00CE04E3 /* DailyStatsViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatsViewModel_Tests.swift; sourceTree = "<group>"; };
 		C4485B702A6AEE5C00CE04E3 /* TimelineEntryViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineEntryViewModel_Tests.swift; sourceTree = "<group>"; };
 		C4485B722A6C23D100CE04E3 /* AddTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodo.swift; sourceTree = "<group>"; };
 		C4485B742A6C240200CE04E3 /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
@@ -145,6 +143,7 @@
 		C46CC1442A64041200F717D4 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		C46CC1462A6425D800F717D4 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		C4E569BD2A782BB6009A5CD3 /* GoalViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModel_Tests.swift; sourceTree = "<group>"; };
+		C4E569BF2A8643A2009A5CD3 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +201,7 @@
 				C41F06E72A5C196300EB907D /* Persistence.swift */,
 				C41F06E92A5C196300EB907D /* NovumContainer.xcdatamodeld */,
 				C41F06E42A5C196300EB907D /* Preview Content */,
+				C4E569BF2A8643A2009A5CD3 /* Readme.md */,
 			);
 			path = Iolas_Novum;
 			sourceTree = "<group>";
@@ -313,7 +313,6 @@
 				C4485B682A6AB84B00CE04E3 /* ShopItemViewModel_Tests.swift */,
 				C4485B6A2A6AB92100CE04E3 /* ActivityViewModel_Tests.swift */,
 				C4485B6C2A6AD75B00CE04E3 /* ActivityStatsViewModel_Tests.swift */,
-				C4485B6E2A6AD9AA00CE04E3 /* DailyStatsViewModel_Tests.swift */,
 				C4485B702A6AEE5C00CE04E3 /* TimelineEntryViewModel_Tests.swift */,
 				C4485B762A6E9CD300CE04E3 /* TodoViewModel_Tests.swift */,
 				C4E569BD2A782BB6009A5CD3 /* GoalViewModel_Tests.swift */,
@@ -528,7 +527,6 @@
 				C4485B672A6AB73600CE04E3 /* TestCoreDataStack.swift in Sources */,
 				C4485B6B2A6AB92100CE04E3 /* ActivityViewModel_Tests.swift in Sources */,
 				C4485B712A6AEE5C00CE04E3 /* TimelineEntryViewModel_Tests.swift in Sources */,
-				C4485B6F2A6AD9AA00CE04E3 /* DailyStatsViewModel_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

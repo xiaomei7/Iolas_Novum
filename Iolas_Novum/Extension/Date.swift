@@ -1,10 +1,3 @@
-//
-//  Date.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 10/07/2023.
-//
-
 import Foundation
 
 extension Date {
@@ -161,11 +154,9 @@ extension Date {
         let startOfDay2 = calendar.startOfDay(for: date2)
         
         if startOfDay1 == startOfDay2 {
-            // The two dates are on the same day.
             let duration = date2.timeIntervalSince(date1)
             durations[startOfDay1] = duration
         } else {
-            // The two dates are on different days.
             if let endOfDay1 = calendar.date(byAdding: .day, value: 1, to: startOfDay1) {
                 let duration1 = endOfDay1.timeIntervalSince(date1)
                 durations[startOfDay1] = duration1
