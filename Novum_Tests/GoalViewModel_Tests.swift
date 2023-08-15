@@ -1,10 +1,3 @@
-//
-//  GoalViewModel_Tests.swift
-//  Novum_Tests
-//
-//  Created by Iolas on 31/07/2023.
-//
-
 import XCTest
 import CoreData
 @testable import Iolas_Novum

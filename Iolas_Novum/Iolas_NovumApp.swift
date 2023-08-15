@@ -1,10 +1,3 @@
-//
-//  Iolas_NovumApp.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 10/07/2023.
-//
-
 import SwiftUI
 import CoreData
 
@@ -29,11 +22,6 @@ struct Iolas_NovumApp: App {
                 newUser.income = 3000.0
                 newUser.points = 0.0
                 newUser.motto = "Life is short."
-                
-                // Create the special "unallocated" activity.
-//                let unallocatedActivity = ActivityEntity(context: context)
-//                unallocatedActivity.id = UUID()
-//                unallocatedActivity.name = "Unallocated"
                 
                 try context.save()
             }

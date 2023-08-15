@@ -1,10 +1,3 @@
-//
-//  UserPreference.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 12/07/2023.
-//
-
 import SwiftUI
 
 struct UserPreference: View {

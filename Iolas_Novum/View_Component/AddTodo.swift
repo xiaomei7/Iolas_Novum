@@ -1,10 +1,3 @@
-//
-//  AddTodo.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 22/07/2023.
-//
-
 import SwiftUI
 
 struct AddTodo: View {
@@ -176,13 +169,15 @@ extension AddTodo {
                 .thicccboi(16, .regular)
                 .foregroundColor(Color("Gray").opacity(0.8))
             
-            let weekDays = Calendar.current.weekdaySymbols
+            let weekDays = Calendar.current.shortWeekdaySymbols
+            let weekDaysIndices = Array(1...7)
             
             HStack(spacing: 10){
-                ForEach(weekDays,id: \.self){day in
-                    let index = todoModel.frequency.firstIndex { value in
-                        return value == day
-                    } ?? -1
+                ForEach(weekDays.indices, id: \.self){ index in
+                    let day = weekDays[index]
+                    let dayIndex = weekDaysIndices[index]
+                    
+                    let isSelected = todoModel.frequency.contains(dayIndex)
                     
                     Text(day.prefix(2))
                         .thicccboi(16, .semibold)
@@ -191,14 +186,16 @@ extension AddTodo {
                         .foregroundColor(index != -1 ? .white : .primary)
                         .background{
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(index != -1 ? Color(todoModel.color) : Color("Gray").opacity(0.4))
+                                .fill(isSelected ? Color(todoModel.color) : Color("Gray").opacity(0.4))
                         }
                         .onTapGesture {
                             withAnimation{
-                                if index != -1{
-                                    todoModel.frequency.remove(at: index)
-                                }else{
-                                    todoModel.frequency.append(day)
+                                withAnimation{
+                                    if let index = todoModel.frequency.firstIndex(of: dayIndex) {
+                                        todoModel.frequency.remove(at: index)
+                                    } else {
+                                        todoModel.frequency.append(dayIndex)
+                                    }
                                 }
                             }
                         }

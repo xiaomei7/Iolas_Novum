@@ -1,10 +1,3 @@
-//
-//  Date.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 10/07/2023.
-//
-
 import Foundation
 
 extension Date {
@@ -63,7 +56,6 @@ extension Date {
             return []
         }
         
-        // Iterating to get the Full Week
         (0..<7).forEach { index in
             if let weekDay = calendar.date(byAdding: .day, value: index, to: starOfWeek) {
                 week.append(.init(date: weekDay))
@@ -93,11 +85,9 @@ extension Date {
         return fetchWeek(previousDate)
     }
     
-    func isInWeekday(_ frequency: [String]) -> Bool {
+    func isInWeekday(_ frequency: [Int]) -> Bool {
         let weekday = Calendar.current.component(.weekday, from: self)
-        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-        let dayOfWeek = days[weekday - 1]
-        return frequency.contains(dayOfWeek)
+        return frequency.contains(weekday)
     }
     
     func startOfMonth() -> Date {
@@ -164,11 +154,9 @@ extension Date {
         let startOfDay2 = calendar.startOfDay(for: date2)
         
         if startOfDay1 == startOfDay2 {
-            // The two dates are on the same day.
             let duration = date2.timeIntervalSince(date1)
             durations[startOfDay1] = duration
         } else {
-            // The two dates are on different days.
             if let endOfDay1 = calendar.date(byAdding: .day, value: 1, to: startOfDay1) {
                 let duration1 = endOfDay1.timeIntervalSince(date1)
                 durations[startOfDay1] = duration1

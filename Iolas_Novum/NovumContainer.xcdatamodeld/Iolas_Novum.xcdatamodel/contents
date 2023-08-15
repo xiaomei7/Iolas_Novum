@@ -38,6 +38,8 @@
         <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="exceedAim" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isRewardGiven" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lastResetDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="punishment" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="reward" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -73,7 +75,7 @@
     <entity name="TodoEntity" representedClassName="TodoEntity" syncable="YES" codeGenerationType="class">
         <attribute name="color" attributeType="String"/>
         <attribute name="created" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="frequency" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[String]"/>
+        <attribute name="frequency" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[Int]"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="reward" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>

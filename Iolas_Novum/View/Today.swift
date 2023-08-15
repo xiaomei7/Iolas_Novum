@@ -1,10 +1,3 @@
-//
-//  Today.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 10/07/2023.
-//
-
 import SwiftUI
 
 struct Today: View {
@@ -26,6 +19,7 @@ struct Today: View {
     @StateObject var activityModel: ActivityViewModel = .init()
     @StateObject var todoModel: TodoViewModel = .init()
     @StateObject var goalModel: GoalViewModel = .init()
+    @EnvironmentObject var userModel: UserViewModel
     
     @State private var isEditNavigationActive = false
     
@@ -81,8 +75,15 @@ struct Today: View {
                             .onTapGesture {
                                 let isComplete = !isTodoCompleted(todo: todo)
                                 withAnimation(.linear) {
-                                    todoModel.updateTodoCompletionStatus(todo: todo, isComplete: isComplete, context: env.managedObjectContext)
-                                    todoModel.fetchAndFilterTodos(context: env.managedObjectContext)
+                                    if isComplete {
+                                        userModel.points += todo.reward
+                                    } else {
+                                        userModel.points -= todo.reward
+                                    }
+                                    if userModel.updatePoints(context: env.managedObjectContext) {
+                                        todoModel.updateTodoCompletionStatus(todo: todo, isComplete: isComplete, context: env.managedObjectContext)
+                                        todoModel.fetchAndFilterTodos(context: env.managedObjectContext)
+                                    }
                                 }
                             }
                     }
@@ -117,6 +118,7 @@ struct Today: View {
             .padding(15)
         })
         .sheet(isPresented: $todoModel.addOrEditTodo, onDismiss: {
+            todoModel.fetchAndFilterTodos(context: env.managedObjectContext)
         }) {
             AddTodo()
                 .environmentObject(todoModel)
@@ -125,7 +127,7 @@ struct Today: View {
         }
         .onAppear {
             todoModel.fetchAndFilterTodos(context: env.managedObjectContext)
-            goalModel.updateCurrentValue(for: Date(), context: env.managedObjectContext)
+            goalModel.updateCurrentValue(for: Date(), context: env.managedObjectContext, userModel: userModel)
         }
     }
 }
@@ -193,7 +195,7 @@ extension Today {
                 Text(todo.name ?? "")
                 Spacer()
             }
-            .font(.title2)
+            .thicccboi(16, .regular)
             .padding(.vertical, 8)
         } else {
             EmptyView()
@@ -213,11 +215,13 @@ extension Today {
                             .thicccboi(12, .thin)
                     }
                     ScrollView(.horizontal, showsIndicators: false) {
-                        ForEach(Array(goal.activities as? Set<ActivityEntity> ?? []), id: \.self) { activity in
-                            ActivityStub(activity: activity, hasDelete: false, activities: .constant(Set<ActivityEntity>()))
-                        }
-                        ForEach(Array(goal.tags as? Set<TagEntity> ?? []), id: \.self) { tag in
-                            TagStub(tag: tag, hasDelete: false, tags: .constant(Set<TagEntity>()))
+                        HStack {
+                            ForEach(Array(goal.activities as? Set<ActivityEntity> ?? []), id: \.self) { activity in
+                                ActivityStub(activity: activity, hasDelete: false, activities: .constant(Set<ActivityEntity>()))
+                            }
+                            ForEach(Array(goal.tags as? Set<TagEntity> ?? []), id: \.self) { tag in
+                                TagStub(tag: tag, hasDelete: false, tags: .constant(Set<TagEntity>()))
+                            }
                         }
                     }
                     ProgressView(value: min(goal.currentValue, goal.aim), total: goal.aim) // TODO: style this progress bar
@@ -229,11 +233,13 @@ extension Today {
                             .thicccboi(12, .thin)
                     }
                     ScrollView(.horizontal, showsIndicators: false) {
-                        ForEach(Array(goal.activities as? Set<ActivityEntity> ?? []), id: \.self) { activity in
-                            ActivityStub(activity: activity, hasDelete: false, activities: .constant(Set<ActivityEntity>()))
-                        }
-                        ForEach(Array(goal.tags as? Set<TagEntity> ?? []), id: \.self) { tag in
-                            TagStub(tag: tag, hasDelete: false, tags: .constant(Set<TagEntity>()))
+                        HStack {
+                            ForEach(Array(goal.activities as? Set<ActivityEntity> ?? []), id: \.self) { activity in
+                                ActivityStub(activity: activity, hasDelete: false, activities: .constant(Set<ActivityEntity>()))
+                            }
+                            ForEach(Array(goal.tags as? Set<TagEntity> ?? []), id: \.self) { tag in
+                                TagStub(tag: tag, hasDelete: false, tags: .constant(Set<TagEntity>()))
+                            }
                         }
                     }
                     ProgressView(value: goal.currentValue, total: goal.aim)

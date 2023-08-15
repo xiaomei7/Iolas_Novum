@@ -1,10 +1,3 @@
-//
-//  Stopwatch.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 13/07/2023.
-//
-
 import SwiftUI
 
 struct Stopwatch: View {

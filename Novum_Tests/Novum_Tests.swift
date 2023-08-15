@@ -1,10 +1,3 @@
-//
-//  Novum_Tests.swift
-//  Novum_Tests
-//
-//  Created by Iolas on 21/07/2023.
-//
-
 import XCTest
 
 final class Novum_Tests: XCTestCase {

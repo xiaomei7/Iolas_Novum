@@ -1,10 +1,3 @@
-//
-//  AddActivity.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 10/07/2023.
-//
-
 import SwiftUI
 
 struct AddActivity: View {
@@ -192,10 +185,6 @@ extension AddActivity {
                         }
                         
                         animateColor = activityModel.influence.color
-//                        withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 1, blendDuration: 1)) {
-//                            animate = true
-//                        }
-                        
                     }
             }
         }

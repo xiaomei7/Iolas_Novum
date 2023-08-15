@@ -1,10 +1,3 @@
-//
-//  ShopItemViewModel.swift
-//  Iolas_Novum
-//
-//  Created by Iolas on 14/07/2023.
-//
-
 import Foundation
 import CoreData
 
@@ -72,7 +65,6 @@ final class ShopItemViewModel: ObservableObject {
     }
     
     func resetData() {
-        print("⚠️ Reset shopitem view model.")
         name = ""
         description = ""
         price = 0.0
